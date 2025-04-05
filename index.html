@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="rtl-styles.css">
+    <script src="translations.js" defer></script>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -60,6 +62,41 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
+        .project-card .h-48 {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        }
+        .project-card .h-48::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0) 70%);
+        }
+        .project-card .h-48 i {
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover .h-48 i {
+            transform: scale(1.1);
+        }
+        
+        /* Section reveal animation */
+        section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        section.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
         /* Navbar animation */
         .nav-scrolled {
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -72,10 +109,99 @@
         /* Mobile menu */
         .mobile-menu {
             transform: translateY(-100%);
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 0;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
         .mobile-menu.active {
             transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .animate-fadeIn {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .animate-slideUp {
+            animation: slideUp 0.8s ease forwards;
+        }
+        .mobile-menu a {
+            position: relative;
+            padding: 0.75rem 0;
+            display: block;
+        }
+        .mobile-menu a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 2px;
+            width: 0;
+            background-color: #2a5298;
+            transition: width 0.3s ease;
+        }
+        .mobile-menu a:hover::after {
+            width: 100%;
+        }
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .section-heading {
+                font-size: 1.75rem;
+                margin-bottom: 1.5rem;
+            }
+            .timeline-item {
+                padding-left: 20px;
+            }
+            .project-card {
+                margin-bottom: 1.5rem;
+                transform: none;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+                border-radius: 12px;
+                overflow: hidden;
+            }
+            .project-card:active {
+                transform: scale(0.98);
+            }
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            section {
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+            }
+            .skill-bar {
+                height: 8px;
+            }
+            input, textarea, button {
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+            .mobile-menu {
+                border-radius: 0 0 20px 20px;
+                padding-top: 5rem;
+            }
+            .mobile-menu a {
+                margin-bottom: 0.5rem;
+            }
+            #mobile-menu-button {
+                width: 3rem;
+                height: 3rem;
+                border-radius: 50%;
+                backdrop-filter: blur(8px);
+                background-color: rgba(42, 82, 152, 0.3);
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }
         }
     </style>
 </head>
@@ -87,29 +213,47 @@
             
             <!-- Desktop Menu -->
             <div class="hidden md:flex space-x-8">
-                <a href="#about" class="text-white hover:text-yellow-400 transition duration-300">About</a>
-                <a href="#experience" class="text-white hover:text-yellow-400 transition duration-300">Experience</a>
-                <a href="#projects" class="text-white hover:text-yellow-400 transition duration-300">Projects</a>
-                <a href="#skills" class="text-white hover:text-yellow-400 transition duration-300">Skills</a>
-                <a href="#education" class="text-white hover:text-yellow-400 transition duration-300">Education</a>
-                <a href="#contact" class="text-white hover:text-yellow-400 transition duration-300">Contact</a>
+                <a href="#about" class="text-white hover:text-yellow-400 transition duration-300" data-i18n="nav_about">About</a>
+                <a href="#experience" class="text-white hover:text-yellow-400 transition duration-300" data-i18n="nav_experience">Experience</a>
+                <a href="#projects" class="text-white hover:text-yellow-400 transition duration-300" data-i18n="nav_projects">Projects</a>
+                <a href="#skills" class="text-white hover:text-yellow-400 transition duration-300" data-i18n="nav_skills">Skills</a>
+                <a href="#education" class="text-white hover:text-yellow-400 transition duration-300" data-i18n="nav_education">Education</a>
+                <a href="#contact" class="text-white hover:text-yellow-400 transition duration-300" data-i18n="nav_contact">Contact</a>
             </div>
             
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none z-10">
-                <i class="fas fa-bars text-2xl"></i>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none z-10 w-12 h-12 flex items-center justify-center bg-blue-600 bg-opacity-50 rounded-full backdrop-blur-sm shadow-lg transition-all duration-300 transform hover:scale-105 active:scale-95">
+                <i class="fas fa-bars text-xl"></i>
             </button>
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="mobile-menu absolute top-0 left-0 w-full bg-white py-5 px-4 shadow-lg md:hidden">
-            <div class="flex flex-col space-y-4 pt-16">
-                <a href="#about" class="text-gray-800 hover:text-blue-600 transition duration-300">About</a>
-                <a href="#experience" class="text-gray-800 hover:text-blue-600 transition duration-300">Experience</a>
-                <a href="#projects" class="text-gray-800 hover:text-blue-600 transition duration-300">Projects</a>
-                <a href="#skills" class="text-gray-800 hover:text-blue-600 transition duration-300">Skills</a>
-                <a href="#education" class="text-gray-800 hover:text-blue-600 transition duration-300">Education</a>
-                <a href="#contact" class="text-gray-800 hover:text-blue-600 transition duration-300">Contact</a>
+        <div id="mobile-menu" class="mobile-menu absolute top-0 left-0 w-full bg-white py-5 px-6 shadow-lg md:hidden rounded-b-2xl">
+            <div class="flex flex-col pt-16 space-y-1">
+                <a href="#about" class="text-gray-800 hover:text-blue-600 transition duration-300 border-b border-gray-100 py-4 flex items-center rounded-lg px-3 hover:bg-blue-50">
+                    <i class="fas fa-user-circle mr-3 text-blue-500 text-lg"></i>
+                    <span class="font-medium" data-i18n="nav_about">About</span>
+                </a>
+                <a href="#experience" class="text-gray-800 hover:text-blue-600 transition duration-300 border-b border-gray-100 py-4 flex items-center rounded-lg px-3 hover:bg-blue-50">
+                    <i class="fas fa-briefcase mr-3 text-blue-500 text-lg"></i>
+                    <span class="font-medium" data-i18n="nav_experience">Experience</span>
+                </a>
+                <a href="#projects" class="text-gray-800 hover:text-blue-600 transition duration-300 border-b border-gray-100 py-4 flex items-center rounded-lg px-3 hover:bg-blue-50">
+                    <i class="fas fa-project-diagram mr-3 text-blue-500 text-lg"></i>
+                    <span class="font-medium" data-i18n="nav_projects">Projects</span>
+                </a>
+                <a href="#skills" class="text-gray-800 hover:text-blue-600 transition duration-300 border-b border-gray-100 py-4 flex items-center rounded-lg px-3 hover:bg-blue-50">
+                    <i class="fas fa-tools mr-3 text-blue-500 text-lg"></i>
+                    <span class="font-medium" data-i18n="nav_skills">Skills</span>
+                </a>
+                <a href="#education" class="text-gray-800 hover:text-blue-600 transition duration-300 border-b border-gray-100 py-4 flex items-center rounded-lg px-3 hover:bg-blue-50">
+                    <i class="fas fa-graduation-cap mr-3 text-blue-500 text-lg"></i>
+                    <span class="font-medium" data-i18n="nav_education">Education</span>
+                </a>
+                <a href="#contact" class="text-gray-800 hover:text-blue-600 transition duration-300 py-4 flex items-center rounded-lg px-3 hover:bg-blue-50">
+                    <i class="fas fa-envelope mr-3 text-blue-500 text-lg"></i>
+                    <span class="font-medium" data-i18n="nav_contact">Contact</span>
+                </a>
             </div>
         </div>
     </nav>
@@ -118,15 +262,15 @@
     <header class="hero-bg h-screen flex items-center" id="home">
         <div class="container mx-auto px-4">
             <div class="max-w-3xl">
-                <p class="text-yellow-400 mb-3 text-xl">Hello, I'm</p>
-                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">Mohammed Nassim Ebrahim</h1>
-                <h2 class="text-2xl md:text-3xl text-gray-200 mb-8">Senior Electrical Engineer & Project Manager</h2>
-                <p class="text-gray-200 text-lg mb-8 max-w-xl">
+                <p class="text-yellow-400 mb-3 text-xl md:text-2xl animate-fadeIn font-medium" data-i18n="hero_hello">Hello, I'm</p>
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight animate-slideUp" data-i18n="hero_title">Mohammed Nassim Ebrahim</h1>
+                <h2 class="text-2xl md:text-3xl text-gray-200 mb-6 md:mb-8 animate-slideUp" style="animation-delay: 0.2s" data-i18n="hero_subtitle">Senior Electrical Engineer & Project Manager</h2>
+                <p class="text-gray-200 text-base md:text-lg mb-8 max-w-xl animate-fadeIn" style="animation-delay: 0.4s" data-i18n="hero_description">
                     With over 12 years of experience designing and managing electrical systems for large-scale projects throughout Saudi Arabia and Egypt.
                 </p>
-                <div class="flex space-x-4">
-                    <a href="#contact" class="px-8 py-3 bg-yellow-500 text-gray-900 font-bold rounded-full hover:bg-yellow-400 transition duration-300">Contact Me</a>
-                    <a href="#projects" class="px-8 py-3 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-blue-800 transition duration-300">View Projects</a>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 animate-fadeIn" style="animation-delay: 0.6s">
+                    <a href="#contact" class="px-6 sm:px-8 py-4 bg-yellow-500 text-gray-900 font-bold rounded-full hover:bg-yellow-400 transition duration-300 text-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 active:translate-y-0 text-base md:text-lg" data-i18n="hero_contact">Contact Me</a>
+                    <a href="#projects" class="px-6 sm:px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-blue-800 transition duration-300 text-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 active:translate-y-0 text-base md:text-lg" data-i18n="hero_projects">View Projects</a>
                 </div>
             </div>
         </div>
@@ -135,19 +279,19 @@
     <!-- About Section -->
     <section id="about" class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="section-heading text-3xl font-bold mb-10">About Me</h2>
+            <h2 class="section-heading text-3xl font-bold mb-10" data-i18n="about_title">About Me</h2>
             <div class="flex flex-col md:flex-row gap-10">
                 <div class="md:w-1/3">
                     <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Contact Information</h3>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800" data-i18n="about_contact_info">Contact Information</h3>
                         <ul class="space-y-3">
                             <li class="flex items-center">
                                 <i class="fas fa-birthday-cake w-6 text-blue-600"></i>
-                                <span class="ml-2">November 01, 1987</span>
+                                <span class="ml-2" data-i18n="about_birthday">November 01, 1987</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-flag w-6 text-blue-600"></i>
-                                <span class="ml-2">Egyptian</span>
+                                <span class="ml-2" data-i18n="about_nationality">Egyptian</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-phone w-6 text-blue-600"></i>
@@ -159,7 +303,7 @@
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-map-marker-alt w-6 text-blue-600"></i>
-                                <span class="ml-2">Almokatam, Cairo, Egypt</span>
+                                <span class="ml-2" data-i18n="about_location">Almokatam, Cairo, Egypt</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fab fa-linkedin w-6 text-blue-600"></i>
@@ -169,22 +313,22 @@
                     </div>
                 </div>
                 <div class="md:w-2/3">
-                    <p class="text-gray-700 mb-6 leading-relaxed">
+                    <p class="text-gray-700 mb-6 leading-relaxed" data-i18n="about_paragraph1">
                         With over twelve years of experience as an electrical engineer, I have developed extensive expertise in project management, infrastructure development, and electrical systems design. Throughout my career, I have consistently demonstrated strong leadership skills by managing teams of up to 150 electricians and 300 workers during critical projects.
                     </p>
-                    <p class="text-gray-700 mb-6 leading-relaxed">
+                    <p class="text-gray-700 mb-6 leading-relaxed" data-i18n="about_paragraph2">
                         My experience spans diverse projects, from hospital maintenance systems to large-scale infrastructure developments, including bridge construction and pilgrim camp installations. I excel in designing electrical systems, conducting quality assurance tests, and implementing effective maintenance protocols.
                     </p>
-                    <p class="text-gray-700 mb-6 leading-relaxed">
+                    <p class="text-gray-700 mb-6 leading-relaxed" data-i18n="about_paragraph3">
                         I am passionate about continuous improvement and have recently completed certifications in Generative AI, Renewable Energy, Project Management, and Solar Energy System Design to stay at the forefront of industry developments.
                     </p>
                     <div class="flex flex-wrap gap-3 mt-8">
-                        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm">Project Management</span>
-                        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm">Electrical Systems Design</span>
-                        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm">Infrastructure Development</span>
-                        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm">Team Leadership</span>
-                        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm">Quality Assurance</span>
-                        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm">Renewable Energy</span>
+                        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm" data-i18n="about_skill1">Project Management</span>
+                        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm" data-i18n="about_skill2">Electrical Systems Design</span>
+                        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm" data-i18n="about_skill3">Infrastructure Development</span>
+                        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm" data-i18n="about_skill4">Team Leadership</span>
+                        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm" data-i18n="about_skill5">Quality Assurance</span>
+                        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm" data-i18n="about_skill6">Renewable Energy</span>
                     </div>
                 </div>
             </div>
@@ -194,16 +338,16 @@
     <!-- Experience Section -->
     <section id="experience" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
-            <h2 class="section-heading text-3xl font-bold mb-10">Work Experience</h2>
+            <h2 class="section-heading text-3xl font-bold mb-10" data-i18n="experience_title">Work Experience</h2>
             
             <div class="space-y-10">
                 <!-- Job 1 -->
                 <div class="timeline-item pb-10">
-                    <h3 class="text-2xl font-semibold text-blue-800">Director of Electricity Department</h3>
-                    <p class="text-gray-600 mb-2">BinSammar Trading and Construction Company | Makkah, Saudi Arabia</p>
-                    <p class="text-gray-500 mb-4">08/2017 – 06/2020</p>
+                    <h3 class="text-2xl font-semibold text-blue-800" data-i18n="job1_title">Director of Electricity Department</h3>
+                    <p class="text-gray-600 mb-2" data-i18n="job1_company">BinSammar Trading and Construction Company | Makkah, Saudi Arabia</p>
+                    <p class="text-gray-500 mb-4" data-i18n="job1_period">08/2017 – 06/2020</p>
                     <div class="space-y-2 text-gray-700">
-                        <p class="leading-relaxed">Led the Electricity Department for the Makkah branch, managing all electrical engineering operations and projects:</p>
+                        <p class="leading-relaxed" data-i18n="job1_intro">Led the Electricity Department for the Makkah branch, managing all electrical engineering operations and projects:</p>
                         <ul class="list-disc pl-5 space-y-2 mt-2">
                             <li>Oversaw a team of 50 employees, providing leadership, training, and performance management to maintain high standards in electrical maintenance and operations</li>
                             <li>Collaborated with designers on project pricing and tendering, ensuring competitive and accurate cost estimates</li>
@@ -217,11 +361,11 @@
                 
                 <!-- Job 2 -->
                 <div class="timeline-item pb-10">
-                    <h3 class="text-2xl font-semibold text-blue-800">Electrical Project Engineer</h3>
-                    <p class="text-gray-600 mb-2">BinSammar Trading and Construction Company | Makkah, Saudi Arabia</p>
-                    <p class="text-gray-500 mb-4">12/2016 – 11/2017</p>
+                    <h3 class="text-2xl font-semibold text-blue-800" data-i18n="job2_title">Electrical Project Engineer</h3>
+                    <p class="text-gray-600 mb-2" data-i18n="job2_company">BinSammar Trading and Construction Company | Makkah, Saudi Arabia</p>
+                    <p class="text-gray-500 mb-4" data-i18n="job2_period">12/2016 – 11/2017</p>
                     <div class="space-y-2 text-gray-700">
-                        <p class="leading-relaxed">Served as site manager for the maintenance of King Faisal Hospital in Makkah:</p>
+                        <p class="leading-relaxed" data-i18n="job2_intro">Served as site manager for the maintenance of King Faisal Hospital in Makkah:</p>
                         <ul class="list-disc pl-5 space-y-2 mt-2">
                             <li>Managed monthly, semi-annual, and annual periodic maintenance schedules, preparing technical reports and maintenance procedures</li>
                             <li>Oversaw maintenance of Caterpillar backup generators (3 MVA capacity)</li>
@@ -236,11 +380,11 @@
                 
                 <!-- Job 3 -->
                 <div class="timeline-item pb-10">
-                    <h3 class="text-2xl font-semibold text-blue-800">Site Manager</h3>
-                    <p class="text-gray-600 mb-2">BinSammar Trading and Construction Company | Makkah, Saudi Arabia</p>
-                    <p class="text-gray-500 mb-4">09/2013 – 11/2016</p>
+                    <h3 class="text-2xl font-semibold text-blue-800" data-i18n="job3_title">Site Manager</h3>
+                    <p class="text-gray-600 mb-2" data-i18n="job3_company">BinSammar Trading and Construction Company | Makkah, Saudi Arabia</p>
+                    <p class="text-gray-500 mb-4" data-i18n="job3_period">09/2013 – 11/2016</p>
                     <div class="space-y-2 text-gray-700">
-                        <p class="leading-relaxed">Managed Hajj preparation operations in the Holy Sites of Makkah:</p>
+                        <p class="leading-relaxed" data-i18n="job3_intro">Managed Hajj preparation operations in the Holy Sites of Makkah:</p>
                         <ul class="list-disc pl-5 space-y-2 mt-2">
                             <li>Created shop drawings for 500 overnight pilgrim camps in Arafat, Mina, and Muzdalifah, including kitchens, bathrooms, prayer areas, and water flow sensors connected to control systems</li>
                             <li>Supervised year-round implementation schedule</li>
@@ -253,9 +397,9 @@
                 
                 <!-- Job 4 -->
                 <div class="timeline-item">
-                    <h3 class="text-2xl font-semibold text-blue-800">Electrical Site Engineer</h3>
-                    <p class="text-gray-600 mb-2">Siemens | 6th of October, Egypt</p>
-                    <p class="text-gray-500 mb-4">01/2011 – 08/2013</p>
+                    <h3 class="text-2xl font-semibold text-blue-800" data-i18n="job4_title">Electrical Site Engineer</h3>
+                    <p class="text-gray-600 mb-2" data-i18n="job4_company">Siemens | 6th of October, Egypt</p>
+                    <p class="text-gray-500 mb-4" data-i18n="job4_period">01/2011 – 08/2013</p>
                     <div class="space-y-2 text-gray-700">
                         <ul class="list-disc pl-5 space-y-2 mt-2">
                             <li>Supervised electrical wiring and related tasks for company premises and sites</li>
@@ -273,34 +417,34 @@
     <!-- Projects Section -->
     <section id="projects" class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="section-heading text-3xl font-bold mb-10">Major Projects</h2>
+            <h2 class="section-heading text-3xl font-bold mb-10" data-i18n="projects_title">Major Projects</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project 1 -->
-                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-xl relative">
                     <div class="h-48 bg-blue-800 flex items-center justify-center">
                         <i class="fas fa-road text-6xl text-white opacity-50"></i>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Fourth Ring Road & Al-Laith Road Bridge</h3>
-                        <p class="text-gray-600 mb-4">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3" data-i18n="project1_title">Fourth Ring Road & Al-Laith Road Bridge</h3>
+                        <p class="text-gray-600 mb-4" data-i18n="project1_desc">
                             Electrical design and construction of road and bridge lighting systems
                         </p>
                         <ul class="text-gray-700 space-y-2 mb-4">
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>140 highmast lighting poles</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>184 standard 12m poles for loops and ramps</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Complete project handover to Holy Capital authorities</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i><span data-i18n="project1_point1">140 highmast lighting poles</span></li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i><span data-i18n="project1_point2">184 standard 12m poles for loops and ramps</span></li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i><span data-i18n="project1_point3">Complete project handover to Holy Capital authorities</span></li>
                         </ul>
                         <div class="pt-4 border-t border-gray-200">
-                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs mr-2 mb-2">Road Lighting</span>
-                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs mr-2 mb-2">Infrastructure</span>
-                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs mr-2 mb-2">Public Works</span>
+                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs mr-2 mb-2" data-i18n="project1_tag1">Road Lighting</span>
+                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs mr-2 mb-2" data-i18n="project1_tag2">Infrastructure</span>
+                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs mr-2 mb-2" data-i18n="project1_tag3">Public Works</span>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Project 2 -->
-                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-xl relative">
                     <div class="h-48 bg-blue-800 flex items-center justify-center">
                         <i class="fas fa-archway text-6xl text-white opacity-50"></i>
                     </div>
@@ -323,7 +467,7 @@
                 </div>
                 
                 <!-- Project 3 -->
-                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-xl relative">
                     <div class="h-48 bg-blue-800 flex items-center justify-center">
                         <i class="fas fa-city text-6xl text-white opacity-50"></i>
                     </div>
@@ -347,7 +491,7 @@
                 </div>
                 
                 <!-- Project 4 -->
-                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-xl relative">
                     <div class="h-48 bg-blue-800 flex items-center justify-center">
                         <i class="fas fa-campground text-6xl text-white opacity-50"></i>
                     </div>
@@ -370,7 +514,7 @@
                 </div>
                 
                 <!-- Project 5 -->
-                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-xl relative">
                     <div class="h-48 bg-blue-800 flex items-center justify-center">
                         <i class="fas fa-tools text-6xl text-white opacity-50"></i>
                     </div>
@@ -393,7 +537,7 @@
                 </div>
                 
                 <!-- Project 6 -->
-                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-xl relative">
                     <div class="h-48 bg-blue-800 flex items-center justify-center">
                         <i class="fas fa-industry text-6xl text-white opacity-50"></i>
                     </div>
@@ -421,12 +565,12 @@
     <!-- Skills Section -->
     <section id="skills" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
-            <h2 class="section-heading text-3xl font-bold mb-10">Skills & Expertise</h2>
+            <h2 class="section-heading text-3xl font-bold mb-10" data-i18n="skills_title">Skills & Expertise</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <!-- Technical Skills -->
                 <div>
-                    <h3 class="text-xl font-semibold mb-6 text-blue-800">Technical Skills</h3>
+                    <h3 class="text-xl font-semibold mb-6 text-blue-800" data-i18n="skills_technical">Technical Skills</h3>
                     
                     <div class="space-y-5">
                         <div>
@@ -493,7 +637,7 @@
                 
                 <!-- Professional Skills & Software -->
                 <div>
-                    <h3 class="text-xl font-semibold mb-6 text-blue-800">Professional Skills</h3>
+                    <h3 class="text-xl font-semibold mb-6 text-blue-800" data-i18n="skills_professional">Professional Skills</h3>
                     <div class="grid grid-cols-2 gap-4 mb-8">
                         <div class="bg-white p-4 rounded-lg shadow-sm flex flex-col items-center">
                             <i class="fas fa-users text-blue-600 text-3xl mb-2"></i>
@@ -513,7 +657,7 @@
                         </div>
                     </div>
                     
-                    <h3 class="text-xl font-semibold mb-6 text-blue-800">Software & Tools</h3>
+                    <h3 class="text-xl font-semibold mb-6 text-blue-800" data-i18n="skills_software">Software & Tools</h3>
                     <div class="grid grid-cols-2 gap-4">
                         <div class="bg-white p-4 rounded-lg shadow-sm flex items-center">
                             <i class="fas fa-drafting-compass text-blue-600 text-xl mr-3"></i>
@@ -556,21 +700,21 @@
             </div>
             
             <div class="mt-16">
-                <h3 class="text-xl font-semibold mb-6 text-blue-800">Languages</h3>
+                <h3 class="text-xl font-semibold mb-6 text-blue-800" data-i18n="skills_languages">Languages</h3>
                 <div class="flex flex-wrap gap-6">
                     <div class="bg-white p-5 rounded-lg shadow-sm flex flex-col items-center w-36">
                         <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-3">
                             <i class="fas fa-language text-blue-600 text-2xl"></i>
                         </div>
-                        <span class="text-gray-800 font-medium">Arabic</span>
-                        <span class="text-gray-600 text-sm mt-1">Native</span>
+                        <span class="text-gray-800 font-medium" data-i18n="language_arabic">Arabic</span>
+                        <span class="text-gray-600 text-sm mt-1" data-i18n="language_arabic_level">Native</span>
                     </div>
                     <div class="bg-white p-5 rounded-lg shadow-sm flex flex-col items-center w-36">
                         <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-3">
                             <i class="fas fa-language text-blue-600 text-2xl"></i>
                         </div>
-                        <span class="text-gray-800 font-medium">English</span>
-                        <span class="text-gray-600 text-sm mt-1">Professional</span>
+                        <span class="text-gray-800 font-medium" data-i18n="language_english">English</span>
+                        <span class="text-gray-600 text-sm mt-1" data-i18n="language_english_level">Professional</span>
                     </div>
                 </div>
             </div>
@@ -580,12 +724,12 @@
     <!-- Education Section -->
     <section id="education" class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="section-heading text-3xl font-bold mb-10">Education & Certifications</h2>
+            <h2 class="section-heading text-3xl font-bold mb-10" data-i18n="education_title">Education & Certifications</h2>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
                 <!-- Education -->
                 <div>
-                    <h3 class="text-xl font-semibold mb-6 text-blue-800">Education</h3>
+                    <h3 class="text-xl font-semibold mb-6 text-blue-800" data-i18n="education_subtitle">Education</h3>
                     <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-600">
                         <h4 class="text-lg font-semibold text-gray-800">Bachelor of Engineering - Electrical Power & Machines</h4>
                         <p class="text-gray-600 mb-1">Tanta University, Egypt</p>
@@ -596,7 +740,7 @@
                 
                 <!-- Certifications -->
                 <div>
-                    <h3 class="text-xl font-semibold mb-6 text-blue-800">Certifications</h3>
+                    <h3 class="text-xl font-semibold mb-6 text-blue-800" data-i18n="certifications_subtitle">Certifications</h3>
                     <div class="space-y-5">
                         <div class="bg-white p-5 rounded-lg shadow-sm border-l-4 border-yellow-500">
                             <h4 class="text-lg font-semibold text-gray-800">Career Essentials in Generative AI</h4>
@@ -642,7 +786,7 @@
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-blue-800 text-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-10 text-center">Get In Touch</h2>
+            <h2 class="text-3xl font-bold mb-10 text-center" data-i18n="contact_title">Get In Touch</h2>
             
             <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div>
@@ -691,29 +835,29 @@
                 </div>
                 
                 <div>
-                    <h3 class="text-xl font-semibold mb-6">Send a Message</h3>
+                    <h3 class="text-xl font-semibold mb-6" data-i18n="contact_subtitle">Send a Message</h3>
                     <form>
-                        <div class="mb-4">
-                            <label for="name" class="block text-gray-300 mb-2">Your Name</label>
-                            <input type="text" id="name" class="w-full px-4 py-2 rounded-lg bg-blue-700 border border-blue-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-white">
+                        <div class="mb-5">
+                            <label for="name" class="block text-gray-300 mb-2 text-sm md:text-base" data-i18n="contact_name">Your Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-xl bg-blue-700 border border-blue-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-white shadow-inner transition duration-300" data-i18n-placeholder="contact_name">
                         </div>
                         
-                        <div class="mb-4">
-                            <label for="email" class="block text-gray-300 mb-2">Your Email</label>
-                            <input type="email" id="email" class="w-full px-4 py-2 rounded-lg bg-blue-700 border border-blue-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-white">
+                        <div class="mb-5">
+                            <label for="email" class="block text-gray-300 mb-2 text-sm md:text-base" data-i18n="contact_email">Your Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-xl bg-blue-700 border border-blue-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-white shadow-inner transition duration-300" data-i18n-placeholder="contact_email">
                         </div>
                         
-                        <div class="mb-4">
-                            <label for="subject" class="block text-gray-300 mb-2">Subject</label>
-                            <input type="text" id="subject" class="w-full px-4 py-2 rounded-lg bg-blue-700 border border-blue-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-white">
+                        <div class="mb-5">
+                            <label for="subject" class="block text-gray-300 mb-2 text-sm md:text-base" data-i18n="contact_subject">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 rounded-xl bg-blue-700 border border-blue-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-white shadow-inner transition duration-300" data-i18n-placeholder="contact_subject">
                         </div>
                         
                         <div class="mb-6">
-                            <label for="message" class="block text-gray-300 mb-2">Message</label>
-                            <textarea id="message" rows="4" class="w-full px-4 py-2 rounded-lg bg-blue-700 border border-blue-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-white"></textarea>
+                            <label for="message" class="block text-gray-300 mb-2 text-sm md:text-base" data-i18n="contact_message">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-xl bg-blue-700 border border-blue-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-white shadow-inner transition duration-300" data-i18n-placeholder="contact_message"></textarea>
                         </div>
                         
-                        <button type="submit" class="px-6 py-3 bg-yellow-500 text-gray-900 font-bold rounded-lg hover:bg-yellow-400 transition duration-300">Send Message</button>
+                        <button type="submit" class="w-full md:w-auto px-6 py-4 bg-yellow-500 text-gray-900 font-bold rounded-xl hover:bg-yellow-400 transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 active:translate-y-0" data-i18n="contact_send">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -743,37 +887,62 @@
     </footer>
 
     <script>
-        // Navbar scroll effect
+        // Navbar scroll effect with smooth transition
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
                 navbar.classList.add('nav-scrolled');
-                document.querySelectorAll('#navbar a').forEach(item => {
+                document.querySelectorAll('#navbar .hidden a').forEach(item => {
                     item.classList.remove('text-white');
                     item.classList.add('text-gray-800');
                 });
             } else {
                 navbar.classList.remove('nav-scrolled');
-                document.querySelectorAll('#navbar a').forEach(item => {
+                document.querySelectorAll('#navbar .hidden a').forEach(item => {
                     item.classList.remove('text-gray-800');
                     item.classList.add('text-white');
                 });
             }
         });
 
-        // Mobile menu toggle
+        // Mobile menu toggle with improved animation
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
+        const body = document.body;
         
         mobileMenuButton.addEventListener('click', function() {
             mobileMenu.classList.toggle('active');
             const icon = mobileMenuButton.querySelector('i');
+            
             if (mobileMenu.classList.contains('active')) {
                 icon.classList.remove('fa-bars');
                 icon.classList.add('fa-times');
+                body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+                
+                // Animate menu items with staggered delay
+                document.querySelectorAll('#mobile-menu a').forEach((item, index) => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(10px)';
+                    item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                    item.style.transitionDelay = `${0.1 + index * 0.05}s`;
+                    
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, 10);
+                });
             } else {
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
+                body.style.overflow = ''; // Restore scrolling
+                
+                // Reset menu item animations
+                document.querySelectorAll('#mobile-menu a').forEach(item => {
+                    item.style.opacity = '';
+                    item.style.transform = '';
+                    item.style.transition = '';
+                    item.style.transitionDelay = '';
+                });
             }
         });
 
@@ -784,8 +953,39 @@
                 const icon = mobileMenuButton.querySelector('i');
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
+                body.style.overflow = ''; // Restore scrolling
+                
+                // Smooth scroll to section
+                const href = item.getAttribute('href');
+                const targetSection = document.querySelector(href);
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
+        
+        // Add scroll reveal effect for sections
+        const revealElements = document.querySelectorAll('section');
+        
+        function checkReveal() {
+            const windowHeight = window.innerHeight;
+            const revealPoint = 150;
+            
+            revealElements.forEach(element => {
+                const revealTop = element.getBoundingClientRect().top;
+                
+                if (revealTop < windowHeight - revealPoint) {
+                    element.classList.add('revealed');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkReveal);
+        window.addEventListener('load', checkReveal);
     </script>
 </body>
 </html>
