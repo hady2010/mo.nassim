@@ -1,4 +1,119 @@
-<!DOCTYPE html>
+<style>
+    .mobile-menu {
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+    .mobile-menu.active {
+        transform: translateY(0);
+    }
+    .mobile-menu-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .mobile-menu-button i {
+        font-size: 1.5rem;
+    }
+    .mobile-menu a {
+        font-size: 1.25rem;
+        padding: 10px 0;
+        border-bottom: 1px solid #e5e7eb;
+    }
+</style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full bg-transparent transition-all duration-300 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white z-10">M<span class="text-yellow-400">.</span>Nassim</a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-white hover:text-yellow-400 transition duration-300">About</a>
+                <a href="#experience" class="text-white hover:text-yellow-400 transition duration-300">Experience</a>
+                <a href="#projects" class="text-white hover:text-yellow-400 transition duration-300">Projects</a>
+                <a href="#skills" class="text-white hover:text-yellow-400 transition duration-300">Skills</a>
+                <a href="#education" class="text-white hover:text-yellow-400 transition duration-300">Education</a>
+                <a href="#contact" class="text-white hover:text-yellow-400 transition duration-300">Contact</a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="mobile-menu-button md:hidden text-white focus:outline-none z-10">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu absolute top-0 left-0 w-full bg-white py-5 px-4 shadow-lg md:hidden">
+            <div class="flex flex-col space-y-4 pt-16">
+                <a href="#about" class="text-gray-800 hover:text-blue-600 transition duration-300">About</a>
+                <a href="#experience" class="text-gray-800 hover:text-blue-600 transition duration-300">Experience</a>
+                <a href="#projects" class="text-gray-800 hover:text-blue-600 transition duration-300">Projects</a>
+                <a href="#skills" class="text-gray-800 hover:text-blue-600 transition duration-300">Skills</a>
+                <a href="#education" class="text-gray-800 hover:text-blue-600 transition duration-300">Education</a>
+                <a href="#contact" class="text-gray-800 hover:text-blue-600 transition duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg h-screen flex items-center" id="home">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl">
+                <p class="text-yellow-400 mb-3 text-xl">Hello, I'm</p>
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">Mohammed Nassim Ebrahim</h1>
+                <h2 class="text-2xl md:text-3xl text-gray-200 mb-8">Senior Electrical Engineer & Project Manager</h2>
+                <p class="text-gray-200 text-lg mb-8 max-w-xl">
+                    With over 12 years of experience designing and managing electrical systems for large-scale projects throughout Saudi Arabia and Egypt.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="px-8 py-3 bg-yellow-500 text-gray-900 font-bold rounded-full hover:bg-yellow-400 transition duration-300">Contact Me</a>
+                    <a href="#projects" class="px-8 py-3 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-blue-800 transition duration-300">View Projects</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="section-heading text-3xl font-bold mb-10">About Me</h2>
+            <div class="flex flex-col md:flex-row gap-10">
+                <div class="md:w-1/3">
+                    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Contact Information</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center">
+                                <i class="fas fa-birthday-cake w-6 text-blue-600"></i>
+                                <span class="ml-2">November 01, 1987</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-flag w-6 text-blue-600"></i>
+                                <span class="ml-2">Egyptian</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-phone w-6 text-blue-600"></i>
+                                <span class="ml-2">+123 456 7890</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-envelope w-6 text-blue-600"></i>
+                                <span class="ml-2">email@example.com</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="md:w-2/3">
+                    <p class="text-lg text-gray-700">
+                        I am a highly motivated and experienced electrical engineer with a strong background in project management. I have successfully led numerous projects from inception to completion, ensuring that all objectives are met on time and within budget. My expertise includes designing electrical systems, managing teams, and coordinating with clients and stakeholders to deliver high-quality results.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
