@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <!-- Background circle -->
+  <circle cx="200" cy="200" r="200" fill="#1a56db" />
+  <!-- Initials text -->
+  <text x="200" y="225" font-family="Arial, sans-serif" font-size="120" font-weight="bold" fill="white" text-anchor="middle">MNE</text>
+</svg>
