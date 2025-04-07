@@ -1,676 +1,494 @@
-<style>
-    .mobile-menu {
-        transform: translateY(-100%);
-        transition: transform 0.3s ease-in-out;
-    }
-    .mobile-menu.active {
-        transform: translateY(0);
-    }
-    .mobile-menu-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-    .mobile-menu-button i {
-        font-size: 1.5rem;
-    }
-    .mobile-menu a {
-        font-size: 1.25rem;
-        padding: 10px 0;
-        border-bottom: 1px solid #e5e7eb;
-    }
-</style>
-</head>
-<body class="bg-gray-50">
-    <!-- Navbar -->
-    <nav id="navbar" class="fixed w-full bg-transparent transition-all duration-300 z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-white z-10">M<span class="text-yellow-400">.</span>Nassim</a>
-            
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-8">
-                <a href="#about" class="text-white hover:text-yellow-400 transition duration-300">About</a>
-                <a href="#experience" class="text-white hover:text-yellow-400 transition duration-300">Experience</a>
-                <a href="#projects" class="text-white hover:text-yellow-400 transition duration-300">Projects</a>
-                <a href="#skills" class="text-white hover:text-yellow-400 transition duration-300">Skills</a>
-                <a href="#education" class="text-white hover:text-yellow-400 transition duration-300">Education</a>
-                <a href="#contact" class="text-white hover:text-yellow-400 transition duration-300">Contact</a>
-            </div>
-            
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="mobile-menu-button md:hidden text-white focus:outline-none z-10">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="mobile-menu absolute top-0 left-0 w-full bg-white py-5 px-4 shadow-lg md:hidden">
-            <div class="flex flex-col space-y-4 pt-16">
-                <a href="#about" class="text-gray-800 hover:text-blue-600 transition duration-300">About</a>
-                <a href="#experience" class="text-gray-800 hover:text-blue-600 transition duration-300">Experience</a>
-                <a href="#projects" class="text-gray-800 hover:text-blue-600 transition duration-300">Projects</a>
-                <a href="#skills" class="text-gray-800 hover:text-blue-600 transition duration-300">Skills</a>
-                <a href="#education" class="text-gray-800 hover:text-blue-600 transition duration-300">Education</a>
-                <a href="#contact" class="text-gray-800 hover:text-blue-600 transition duration-300">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="hero-bg h-screen flex items-center" id="home">
-        <div class="container mx-auto px-4">
-            <div class="max-w-3xl">
-                <p class="text-yellow-400 mb-3 text-xl">Hello, I'm</p>
-                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">Mohammed Nassim Ebrahim</h1>
-                <h2 class="text-2xl md:text-3xl text-gray-200 mb-8">Senior Electrical Engineer & Project Manager</h2>
-                <p class="text-gray-200 text-lg mb-8 max-w-xl">
-                    With over 12 years of experience designing and managing electrical systems for large-scale projects throughout Saudi Arabia and Egypt.
-                </p>
-                <div class="flex space-x-4">
-                    <a href="#contact" class="px-8 py-3 bg-yellow-500 text-gray-900 font-bold rounded-full hover:bg-yellow-400 transition duration-300">Contact Me</a>
-                    <a href="#projects" class="px-8 py-3 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-blue-800 transition duration-300">View Projects</a>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="section-heading text-3xl font-bold mb-10">About Me</h2>
-            <div class="flex flex-col md:flex-row gap-10">
-                <div class="md:w-1/3">
-                    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Contact Information</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-center">
-                                <i class="fas fa-birthday-cake w-6 text-blue-600"></i>
-                                <span class="ml-2">November 01, 1987</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-flag w-6 text-blue-600"></i>
-                                <span class="ml-2">Egyptian</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-phone w-6 text-blue-600"></i>
-                                <span class="ml-2">+123 456 7890</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-envelope w-6 text-blue-600"></i>
-                                <span class="ml-2">email@example.com</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="md:w-2/3">
-                    <p class="text-lg text-gray-700">
-                        I am a highly motivated and experienced electrical engineer with a strong background in project management. I have successfully led numerous projects from inception to completion, ensuring that all objectives are met on time and within budget. My expertise includes designing electrical systems, managing teams, and coordinating with clients and stakeholders to deliver high-quality results.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional portfolio of Mohammed Nassim Ebrahim, an experienced Electrical Engineer specializing in project management, infrastructure design, and electrical systems.">
     <title>Mohammed Nassim Ebrahim | Electrical Engineer</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="rtl-styles.css">
-    <script src="translations.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
+        /* Base Styles */
         body {
             font-family: 'Roboto', sans-serif;
             scroll-behavior: smooth;
         }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif;
+        body.rtl {
+            font-family: 'Tajawal', sans-serif;
+            direction: rtl;
+            text-align: right;
         }
-        .hero-bg {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        .section {
+            padding: 4rem 1rem;
         }
-        .section-heading::after {
-            content: "";
-            display: block;
-            width: 50px;
-            height: 3px;
-            background-color: #2a5298;
-            margin-top: 8px;
-        }
-        .timeline-item {
-            border-left: 2px solid #2a5298;
-            position: relative;
-            padding-left: 25px;
-            margin-left: 10px;
-        }
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            left: -9px;
-            top: 0;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background-color: #2a5298;
-        }
-        .skill-bar {
+        .progress-bar {
             height: 10px;
-            background-color: #e9ecef;
+            background-color: #e2e8f0;
             border-radius: 5px;
             overflow: hidden;
         }
-        .skill-progress {
+        .progress-fill {
             height: 100%;
-            background-color: #2a5298;
+            background-color: #3b82f6;
             border-radius: 5px;
+            transition: width 1s ease-in-out;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 28px;
+            padding-bottom: 40px;
+        }
+        .rtl .timeline-item {
+            padding-left: 0;
+            padding-right: 28px;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 4px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: #3b82f6;
+            z-index: 1;
+        }
+        .rtl .timeline-item:before {
+            left: auto;
+            right: 0;
+        }
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 18px;
+            width: 2px;
+            height: calc(100% - 14px);
+            background-color: #e2e8f0;
+        }
+        .rtl .timeline-item:after {
+            left: auto;
+            right: 6px;
+        }
+        .timeline-item:last-child:after {
+            display: none;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            transition: all 0.25s;
+            position: relative;
+        }
+        .hamburger-top,
+        .hamburger-middle,
+        .hamburger-bottom {
+            position: absolute;
+            width: 24px;
+            height: 2px;
+            top: 0;
+            left: 0;
+            background: #000;
+            transform: rotate(0);
+            transition: all 0.5s;
+        }
+        .hamburger-middle {
+            transform: translateY(7px);
+        }
+        .hamburger-bottom {
+            transform: translateY(14px);
+        }
+        .open .hamburger-top {
+            transform: rotate(45deg) translateY(6px) translateX(6px);
+        }
+        .open .hamburger-middle {
+            display: none;
+        }
+        .open .hamburger-bottom {
+            transform: rotate(-45deg) translateY(6px) translateX(-6px);
+        }
+        .rtl .hamburger-top,
+        .rtl .hamburger-middle,
+        .rtl .hamburger-bottom {
+            left: auto;
+            right: 0;
+        }
+        
+        /* Project Card Animation */
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .project-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        .project-card .h-48 {
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-        }
-        .project-card .h-48::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0) 70%);
-        }
-        .project-card .h-48 i {
-            position: relative;
-            z-index: 1;
-            transition: transform 0.3s ease;
-        }
-        .project-card:hover .h-48 i {
-            transform: scale(1.1);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
         
-        /* Section reveal animation */
-        section {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+        /* Language Selector */
+        .language-selector {
+            transition: all 0.3s ease;
+        }
+        .language-selector:hover {
+            transform: scale(1.05);
         }
         
-        section.revealed {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Navbar animation */
-        .nav-scrolled {
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            background-color: white;
-        }
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-        /* Mobile menu */
+        /* Mobile Menu */
         .mobile-menu {
-            transform: translateY(-100%);
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            opacity: 0;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(-100%);
         }
-        .mobile-menu.active {
-            transform: translateY(0);
-            opacity: 1;
+        .mobile-menu.open {
+            transform: translateX(0);
         }
-        
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .rtl .mobile-menu {
+            transform: translateX(100%);
         }
-        
-        @keyframes slideUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        
-        .animate-fadeIn {
-            animation: fadeIn 0.8s ease forwards;
-        }
-        
-        .animate-slideUp {
-            animation: slideUp 0.8s ease forwards;
-        }
-        .mobile-menu a {
-            position: relative;
-            padding: 0.75rem 0;
-            display: block;
-        }
-        .mobile-menu a::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            height: 2px;
-            width: 0;
-            background-color: #2a5298;
-            transition: width 0.3s ease;
-        }
-        .mobile-menu a:hover::after {
-            width: 100%;
-        }
-        /* Mobile optimizations */
-        @media (max-width: 768px) {
-            .section-heading {
-                font-size: 1.75rem;
-                margin-bottom: 1.5rem;
-            }
-            .timeline-item {
-                padding-left: 20px;
-            }
-            .project-card {
-                margin-bottom: 1.5rem;
-                transform: none;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-                border-radius: 12px;
-                overflow: hidden;
-            }
-            .project-card:active {
-                transform: scale(0.98);
-            }
-            .container {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-            section {
-                padding-top: 3rem;
-                padding-bottom: 3rem;
-            }
-            .skill-bar {
-                height: 8px;
-            }
-            input, textarea, button {
-                font-size: 16px; /* Prevents zoom on iOS */
-            }
-            .mobile-menu {
-                border-radius: 0 0 20px 20px;
-                padding-top: 5rem;
-            }
-            .mobile-menu a {
-                margin-bottom: 0.5rem;
-            }
-            #mobile-menu-button {
-                width: 3rem;
-                height: 3rem;
-                border-radius: 50%;
-                backdrop-filter: blur(8px);
-                background-color: rgba(42, 82, 152, 0.3);
-                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            }
+        .rtl .mobile-menu.open {
+            transform: translateX(0);
         }
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Navbar -->
-    <nav id="navbar" class="fixed w-full bg-transparent transition-all duration-300 z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-white z-10">M<span class="text-yellow-400">.</span>Nassim</a>
-            
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-8">
-                <a href="#about" class="text-white hover:text-yellow-400 transition duration-300" data-i18n="nav_about">About</a>
-                <a href="#experience" class="text-white hover:text-yellow-400 transition duration-300" data-i18n="nav_experience">Experience</a>
-                <a href="#projects" class="text-white hover:text-yellow-400 transition duration-300" data-i18n="nav_projects">Projects</a>
-                <a href="#skills" class="text-white hover:text-yellow-400 transition duration-300" data-i18n="nav_skills">Skills</a>
-                <a href="#education" class="text-white hover:text-yellow-400 transition duration-300" data-i18n="nav_education">Education</a>
-                <a href="#contact" class="text-white hover:text-yellow-400 transition duration-300" data-i18n="nav_contact">Contact</a>
-            </div>
-            
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none z-10 w-12 h-12 flex items-center justify-center bg-blue-600 bg-opacity-50 rounded-full backdrop-blur-sm shadow-lg transition-all duration-300 transform hover:scale-105 active:scale-95">
-                <i class="fas fa-bars text-xl"></i>
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 h-screen w-64 bg-white shadow-lg z-50 transform lg:hidden">
+        <div class="flex justify-end p-4">
+            <button id="close-menu" class="text-gray-600 hover:text-gray-900">
+                <i class="fas fa-times text-xl"></i>
             </button>
         </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="mobile-menu absolute top-0 left-0 w-full bg-white py-5 px-6 shadow-lg md:hidden rounded-b-2xl">
-            <div class="flex flex-col pt-16 space-y-1">
-                <a href="#about" class="text-gray-800 hover:text-blue-600 transition duration-300 border-b border-gray-100 py-4 flex items-center rounded-lg px-3 hover:bg-blue-50">
-                    <i class="fas fa-user-circle mr-3 text-blue-500 text-lg"></i>
-                    <span class="font-medium" data-i18n="nav_about">About</span>
-                </a>
-                <a href="#experience" class="text-gray-800 hover:text-blue-600 transition duration-300 border-b border-gray-100 py-4 flex items-center rounded-lg px-3 hover:bg-blue-50">
-                    <i class="fas fa-briefcase mr-3 text-blue-500 text-lg"></i>
-                    <span class="font-medium" data-i18n="nav_experience">Experience</span>
-                </a>
-                <a href="#projects" class="text-gray-800 hover:text-blue-600 transition duration-300 border-b border-gray-100 py-4 flex items-center rounded-lg px-3 hover:bg-blue-50">
-                    <i class="fas fa-project-diagram mr-3 text-blue-500 text-lg"></i>
-                    <span class="font-medium" data-i18n="nav_projects">Projects</span>
-                </a>
-                <a href="#skills" class="text-gray-800 hover:text-blue-600 transition duration-300 border-b border-gray-100 py-4 flex items-center rounded-lg px-3 hover:bg-blue-50">
-                    <i class="fas fa-tools mr-3 text-blue-500 text-lg"></i>
-                    <span class="font-medium" data-i18n="nav_skills">Skills</span>
-                </a>
-                <a href="#education" class="text-gray-800 hover:text-blue-600 transition duration-300 border-b border-gray-100 py-4 flex items-center rounded-lg px-3 hover:bg-blue-50">
-                    <i class="fas fa-graduation-cap mr-3 text-blue-500 text-lg"></i>
-                    <span class="font-medium" data-i18n="nav_education">Education</span>
-                </a>
-                <a href="#contact" class="text-gray-800 hover:text-blue-600 transition duration-300 py-4 flex items-center rounded-lg px-3 hover:bg-blue-50">
-                    <i class="fas fa-envelope mr-3 text-blue-500 text-lg"></i>
-                    <span class="font-medium" data-i18n="nav_contact">Contact</span>
-                </a>
-            </div>
+        <div class="px-4 py-2">
+            <ul class="space-y-4">
+                <li><a href="#home" class="text-gray-800 hover:text-blue-600 block py-2 en-text">Home</a><a href="#home" class="text-gray-800 hover:text-blue-600 block py-2 ar-text hidden">الرئيسية</a></li>
+                <li><a href="#about" class="text-gray-800 hover:text-blue-600 block py-2 en-text">About</a><a href="#about" class="text-gray-800 hover:text-blue-600 block py-2 ar-text hidden">نبذة عني</a></li>
+                <li><a href="#experience" class="text-gray-800 hover:text-blue-600 block py-2 en-text">Experience</a><a href="#experience" class="text-gray-800 hover:text-blue-600 block py-2 ar-text hidden">الخبرة</a></li>
+                <li><a href="#projects" class="text-gray-800 hover:text-blue-600 block py-2 en-text">Projects</a><a href="#projects" class="text-gray-800 hover:text-blue-600 block py-2 ar-text hidden">المشاريع</a></li>
+                <li><a href="#skills" class="text-gray-800 hover:text-blue-600 block py-2 en-text">Skills</a><a href="#skills" class="text-gray-800 hover:text-blue-600 block py-2 ar-text hidden">المهارات</a></li>
+                <li><a href="#education" class="text-gray-800 hover:text-blue-600 block py-2 en-text">Education</a><a href="#education" class="text-gray-800 hover:text-blue-600 block py-2 ar-text hidden">التعليم</a></li>
+                <li><a href="#contact" class="text-gray-800 hover:text-blue-600 block py-2 en-text">Contact</a><a href="#contact" class="text-gray-800 hover:text-blue-600 block py-2 ar-text hidden">اتصل بي</a></li>
+            </ul>
         </div>
-    </nav>
+    </div>
 
-    <!-- Hero Section -->
-    <header class="hero-bg h-screen flex items-center" id="home">
+    <!-- Header -->
+    <header class="fixed w-full bg-white shadow-md z-40">
         <div class="container mx-auto px-4">
-            <div class="max-w-3xl">
-                <p class="text-yellow-400 mb-3 text-xl md:text-2xl animate-fadeIn font-medium" data-i18n="hero_hello">Hello, I'm</p>
-                <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight animate-slideUp" data-i18n="hero_title">Mohammed Nassim Ebrahim</h1>
-                <h2 class="text-2xl md:text-3xl text-gray-200 mb-6 md:mb-8 animate-slideUp" style="animation-delay: 0.2s" data-i18n="hero_subtitle">Senior Electrical Engineer & Project Manager</h2>
-                <p class="text-gray-200 text-base md:text-lg mb-8 max-w-xl animate-fadeIn" style="animation-delay: 0.4s" data-i18n="hero_description">
-                    With over 12 years of experience designing and managing electrical systems for large-scale projects throughout Saudi Arabia and Egypt.
-                </p>
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 animate-fadeIn" style="animation-delay: 0.6s">
-                    <a href="#contact" class="px-6 sm:px-8 py-4 bg-yellow-500 text-gray-900 font-bold rounded-full hover:bg-yellow-400 transition duration-300 text-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 active:translate-y-0 text-base md:text-lg" data-i18n="hero_contact">Contact Me</a>
-                    <a href="#projects" class="px-6 sm:px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-blue-800 transition duration-300 text-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 active:translate-y-0 text-base md:text-lg" data-i18n="hero_projects">View Projects</a>
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-bold text-gray-800 en-text">Mohammed Nassim</h1>
+                    <h1 class="text-xl font-bold text-gray-800 ar-text hidden">محمد نسيم</h1>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:block">
+                    <ul class="flex space-x-8">
+                        <li><a href="#home" class="text-gray-600 hover:text-blue-600 en-text">Home</a><a href="#home" class="text-gray-600 hover:text-blue-600 ar-text hidden">الرئيسية</a></li>
+                        <li><a href="#about" class="text-gray-600 hover:text-blue-600 en-text">About</a><a href="#about" class="text-gray-600 hover:text-blue-600 ar-text hidden">نبذة عني</a></li>
+                        <li><a href="#experience" class="text-gray-600 hover:text-blue-600 en-text">Experience</a><a href="#experience" class="text-gray-600 hover:text-blue-600 ar-text hidden">الخبرة</a></li>
+                        <li><a href="#projects" class="text-gray-600 hover:text-blue-600 en-text">Projects</a><a href="#projects" class="text-gray-600 hover:text-blue-600 ar-text hidden">المشاريع</a></li>
+                        <li><a href="#skills" class="text-gray-600 hover:text-blue-600 en-text">Skills</a><a href="#skills" class="text-gray-600 hover:text-blue-600 ar-text hidden">المهارات</a></li>
+                        <li><a href="#education" class="text-gray-600 hover:text-blue-600 en-text">Education</a><a href="#education" class="text-gray-600 hover:text-blue-600 ar-text hidden">التعليم</a></li>
+                        <li><a href="#contact" class="text-gray-600 hover:text-blue-600 en-text">Contact</a><a href="#contact" class="text-gray-600 hover:text-blue-600 ar-text hidden">اتصل بي</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="flex items-center space-x-4">
+                    <!-- Language Toggle -->
+                    <button id="language-toggle" class="language-selector p-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300">
+                        <span class="en-text">AR</span>
+                        <span class="ar-text hidden">EN</span>
+                    </button>
+                    
+                    <!-- Hamburger Button (Mobile Only) -->
+                    <button id="menu-btn" class="hamburger lg:hidden focus:outline-none">
+                        <span class="hamburger-top"></span>
+                        <span class="hamburger-middle"></span>
+                        <span class="hamburger-bottom"></span>
+                    </button>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-10 bg-gradient-to-r from-blue-50 to-indigo-50">
         <div class="container mx-auto px-4">
-            <h2 class="section-heading text-3xl font-bold mb-10" data-i18n="about_title">About Me</h2>
-            <div class="flex flex-col md:flex-row gap-10">
-                <div class="md:w-1/3">
-                    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-semibold mb-4 text-gray-800" data-i18n="about_contact_info">Contact Information</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-center">
-                                <i class="fas fa-birthday-cake w-6 text-blue-600"></i>
-                                <span class="ml-2" data-i18n="about_birthday">November 01, 1987</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-flag w-6 text-blue-600"></i>
-                                <span class="ml-2" data-i18n="about_nationality">Egyptian</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-phone w-6 text-blue-600"></i>
-                                <span class="ml-2">01067393757</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-envelope w-6 text-blue-600"></i>
-                                <span class="ml-2">mohammednassim4@live.com</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-map-marker-alt w-6 text-blue-600"></i>
-                                <span class="ml-2" data-i18n="about_location">Almokatam, Cairo, Egypt</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fab fa-linkedin w-6 text-blue-600"></i>
-                                <a href="#" class="ml-2 text-blue-600 hover:underline">@mohammed-nassim</a>
-                            </li>
-                        </ul>
+            <div class="flex flex-col-reverse md:flex-row items-center">
+                <div class="md:w-2/3 mt-8 md:mt-0 md:pr-10">
+                    <h1 class="text-4xl font-bold text-gray-800 mb-4 en-text">Mohammed Nassim Ebrahim</h1>
+                    <h1 class="text-4xl font-bold text-gray-800 mb-4 ar-text hidden">محمد نسيم إبراهيم</h1>
+                    <h2 class="text-2xl text-blue-600 mb-6 en-text">Electrical Engineer & Project Manager</h2>
+                    <h2 class="text-2xl text-blue-600 mb-6 ar-text hidden">مهندس كهربائي ومدير مشاريع</h2>
+                    <p class="text-gray-600 mb-6 en-text">With over 12 years of expertise in electrical engineering and project management, specializing in infrastructure development, electrical systems design, and team leadership.</p>
+                    <p class="text-gray-600 mb-6 ar-text hidden">بخبرة تزيد عن 12 عامًا في مجال الهندسة الكهربائية وإدارة المشاريع، متخصص في تطوير البنية التحتية، وتصميم الأنظمة الكهربائية، وقيادة الفريق.</p>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="#contact" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition en-text">Contact Me</a>
+                        <a href="#contact" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition ar-text hidden">اتصل بي</a>
+                        <a href="#projects" class="px-6 py-3 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition en-text">View Projects</a>
+                        <a href="#projects" class="px-6 py-3 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition ar-text hidden">عرض المشاريع</a>
                     </div>
                 </div>
-                <div class="md:w-2/3">
-                    <p class="text-gray-700 mb-6 leading-relaxed" data-i18n="about_paragraph1">
-                        With over twelve years of experience as an electrical engineer, I have developed extensive expertise in project management, infrastructure development, and electrical systems design. Throughout my career, I have consistently demonstrated strong leadership skills by managing teams of up to 150 electricians and 300 workers during critical projects.
-                    </p>
-                    <p class="text-gray-700 mb-6 leading-relaxed" data-i18n="about_paragraph2">
-                        My experience spans diverse projects, from hospital maintenance systems to large-scale infrastructure developments, including bridge construction and pilgrim camp installations. I excel in designing electrical systems, conducting quality assurance tests, and implementing effective maintenance protocols.
-                    </p>
-                    <p class="text-gray-700 mb-6 leading-relaxed" data-i18n="about_paragraph3">
-                        I am passionate about continuous improvement and have recently completed certifications in Generative AI, Renewable Energy, Project Management, and Solar Energy System Design to stay at the forefront of industry developments.
-                    </p>
-                    <div class="flex flex-wrap gap-3 mt-8">
-                        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm" data-i18n="about_skill1">Project Management</span>
-                        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm" data-i18n="about_skill2">Electrical Systems Design</span>
-                        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm" data-i18n="about_skill3">Infrastructure Development</span>
-                        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm" data-i18n="about_skill4">Team Leadership</span>
-                        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm" data-i18n="about_skill5">Quality Assurance</span>
-                        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm" data-i18n="about_skill6">Renewable Energy</span>
+                <div class="md:w-1/3 flex justify-center">
+                    <div class="w-48 h-48 rounded-full bg-gradient-to-r from-blue-400 to-indigo-500 flex items-center justify-center text-white text-4xl font-bold">
+                        <span>ME</span>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-10 en-text">About Me</h2>
+            <h2 class="text-3xl font-bold text-center mb-10 ar-text hidden">نبذة عني</h2>
+            <div class="max-w-3xl mx-auto">
+                <p class="text-gray-700 mb-6 en-text">I am an experienced Electrical Engineer with over twelve years of professional expertise in designing, installing, testing, and maintaining electrical systems for various projects. My career has focused on electrical power systems, infrastructure development, and project management, with a strong track record in leading technical teams and delivering complex projects.</p>
+                <p class="text-gray-700 mb-6 ar-text hidden">أنا مهندس كهربائي ذو خبرة تزيد عن اثني عشر عامًا من الخبرة المهنية في تصميم وتركيب واختبار وصيانة الأنظمة الكهربائية لمختلف المشاريع. ركزت مسيرتي المهنية على أنظمة الطاقة الكهربائية، وتطوير البنية التحتية، وإدارة المشاريع، مع سجل حافل في قيادة الفرق التقنية وتنفيذ المشاريع المعقدة.</p>
+                
+                <p class="text-gray-700 mb-6 en-text">Throughout my career, I've managed large-scale electrical projects, including infrastructure development for holy sites in Makkah, hospital maintenance systems, and industrial installations. I excel at managing cross-functional teams, coordinating with stakeholders, and ensuring projects meet technical specifications and safety standards.</p>
+                <p class="text-gray-700 mb-6 ar-text hidden">على مدار حياتي المهنية، قمت بإدارة مشاريع كهربائية واسعة النطاق، بما في ذلك تطوير البنية التحتية للمواقع المقدسة في مكة، وأنظمة صيانة المستشفيات، والمنشآت الصناعية. أتفوق في إدارة الفرق متعددة الوظائف، والتنسيق مع أصحاب المصلحة، وضمان تلبية المشاريع للمواصفات الفنية ومعايير السلامة.</p>
+                
+                <p class="text-gray-700 mb-6 en-text">I am committed to continuous professional development and have recently expanded my knowledge through courses in generative AI, renewable energy schemes, project management, and solar energy system design. I believe in combining technical expertise with effective leadership to deliver successful project outcomes.</p>
+                <p class="text-gray-700 mb-6 ar-text hidden">أنا ملتزم بالتطوير المهني المستمر وقد وسعت مؤخرًا معرفتي من خلال دورات في الذكاء الاصطناعي التوليدي، ومخططات الطاقة المتجددة، وإدارة المشاريع، وتصميم نظام الطاقة الشمسية. أؤمن بالجمع بين الخبرة التقنية والقيادة الفعالة لتحقيق نتائج ناجحة للمشاريع.</p>
+            </div>
+            
+            <div class="mt-10 flex flex-wrap justify-center gap-4">
+                <div class="w-full md:w-1/3 lg:w-1/4 bg-gray-50 p-6 rounded-lg shadow-sm text-center">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">12+</div>
+                    <div class="text-gray-700 en-text">Years Experience</div>
+                    <div class="text-gray-700 ar-text hidden">سنوات الخبرة</div>
+                </div>
+                <div class="w-full md:w-1/3 lg:w-1/4 bg-gray-50 p-6 rounded-lg shadow-sm text-center">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">50+</div>
+                    <div class="text-gray-700 en-text">Team Members Led</div>
+                    <div class="text-gray-700 ar-text hidden">أعضاء الفريق الذين قادهم</div>
+                </div>
+                <div class="w-full md:w-1/3 lg:w-1/4 bg-gray-50 p-6 rounded-lg shadow-sm text-center">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">10+</div>
+                    <div class="text-gray-700 en-text">Major Projects</div>
+                    <div class="text-gray-700 ar-text hidden">مشاريع كبرى</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-gray-50">
+    <section id="experience" class="section bg-gray-50">
         <div class="container mx-auto px-4">
-            <h2 class="section-heading text-3xl font-bold mb-10" data-i18n="experience_title">Work Experience</h2>
+            <h2 class="text-3xl font-bold text-center mb-10 en-text">Professional Experience</h2>
+            <h2 class="text-3xl font-bold text-center mb-10 ar-text hidden">الخبرة المهنية</h2>
             
-            <div class="space-y-10">
-                <!-- Job 1 -->
-                <div class="timeline-item pb-10">
-                    <h3 class="text-2xl font-semibold text-blue-800" data-i18n="job1_title">Director of Electricity Department</h3>
-                    <p class="text-gray-600 mb-2" data-i18n="job1_company">BinSammar Trading and Construction Company | Makkah, Saudi Arabia</p>
-                    <p class="text-gray-500 mb-4" data-i18n="job1_period">08/2017 – 06/2020</p>
-                    <div class="space-y-2 text-gray-700">
-                        <p class="leading-relaxed" data-i18n="job1_intro">Led the Electricity Department for the Makkah branch, managing all electrical engineering operations and projects:</p>
-                        <ul class="list-disc pl-5 space-y-2 mt-2">
-                            <li>Oversaw a team of 50 employees, providing leadership, training, and performance management to maintain high standards in electrical maintenance and operations</li>
-                            <li>Collaborated with designers on project pricing and tendering, ensuring competitive and accurate cost estimates</li>
-                            <li>Developed and implemented strategic plans for department operations and project management</li>
-                            <li>Conducted quality assurance tests to identify and resolve errors, optimizing reliability of electrical systems</li>
-                            <li>Maintained communication with customers, engineers, and stakeholders to ensure timely project completion</li>
-                            <li>Coordinated with consultants for initial and permanent project delivery</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Job 2 -->
-                <div class="timeline-item pb-10">
-                    <h3 class="text-2xl font-semibold text-blue-800" data-i18n="job2_title">Electrical Project Engineer</h3>
-                    <p class="text-gray-600 mb-2" data-i18n="job2_company">BinSammar Trading and Construction Company | Makkah, Saudi Arabia</p>
-                    <p class="text-gray-500 mb-4" data-i18n="job2_period">12/2016 – 11/2017</p>
-                    <div class="space-y-2 text-gray-700">
-                        <p class="leading-relaxed" data-i18n="job2_intro">Served as site manager for the maintenance of King Faisal Hospital in Makkah:</p>
-                        <ul class="list-disc pl-5 space-y-2 mt-2">
-                            <li>Managed monthly, semi-annual, and annual periodic maintenance schedules, preparing technical reports and maintenance procedures</li>
-                            <li>Oversaw maintenance of Caterpillar backup generators (3 MVA capacity)</li>
-                            <li>Supervised maintenance of hospital electrical panels from main distribution to lighting panels</li>
-                            <li>Coordinated maintenance for specialized systems including UPS for operating rooms, isolation systems for ICU rooms, nurse call systems, and pneumatic tube systems</li>
-                            <li>Managed fire alarm and telephone system maintenance</li>
-                            <li>Supervised 20 electricians and 40 workers</li>
-                            <li>Handled subcontractor relationships and prepared monthly invoices</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Job 3 -->
-                <div class="timeline-item pb-10">
-                    <h3 class="text-2xl font-semibold text-blue-800" data-i18n="job3_title">Site Manager</h3>
-                    <p class="text-gray-600 mb-2" data-i18n="job3_company">BinSammar Trading and Construction Company | Makkah, Saudi Arabia</p>
-                    <p class="text-gray-500 mb-4" data-i18n="job3_period">09/2013 – 11/2016</p>
-                    <div class="space-y-2 text-gray-700">
-                        <p class="leading-relaxed" data-i18n="job3_intro">Managed Hajj preparation operations in the Holy Sites of Makkah:</p>
-                        <ul class="list-disc pl-5 space-y-2 mt-2">
-                            <li>Created shop drawings for 500 overnight pilgrim camps in Arafat, Mina, and Muzdalifah, including kitchens, bathrooms, prayer areas, and water flow sensors connected to control systems</li>
-                            <li>Supervised year-round implementation schedule</li>
-                            <li>Managed electrical maintenance for over 3,000 overnight camps</li>
-                            <li>Led approximately 150 electricians and 300 workers during the Hajj season</li>
-                            <li>Ensured continuous electrical services with rapid fault response to maintain company reputation with the Ministry of Hajj and National Water Company</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Job 4 -->
+            <div class="max-w-3xl mx-auto">
+                <!-- Timeline Item 1 -->
                 <div class="timeline-item">
-                    <h3 class="text-2xl font-semibold text-blue-800" data-i18n="job4_title">Electrical Site Engineer</h3>
-                    <p class="text-gray-600 mb-2" data-i18n="job4_company">Siemens | 6th of October, Egypt</p>
-                    <p class="text-gray-500 mb-4" data-i18n="job4_period">01/2011 – 08/2013</p>
-                    <div class="space-y-2 text-gray-700">
-                        <ul class="list-disc pl-5 space-y-2 mt-2">
-                            <li>Supervised electrical wiring and related tasks for company premises and sites</li>
-                            <li>Led a team of technicians in installation and commissioning of electrical systems for major industrial projects</li>
-                            <li>Conducted regular site inspections to identify and resolve electrical issues</li>
-                            <li>Coordinated with clients, architects, and contractors to develop detailed electrical plans</li>
-                            <li>Collaborated with cross-functional teams for testing and troubleshooting electrical equipment</li>
-                        </ul>
+                    <div class="mb-2">
+                        <h3 class="text-xl font-bold text-gray-800 en-text">Director of the Electricity Department</h3>
+                        <h3 class="text-xl font-bold text-gray-800 ar-text hidden">مدير قسم الكهرباء</h3>
+                        <div class="text-blue-600 en-text">BinSammar Trading and Construction Company, Makkah</div>
+                        <div class="text-blue-600 ar-text hidden">شركة بن سمار للتجارة والمقاولات، مكة</div>
+                        <div class="text-sm text-gray-500 en-text">August 2017 - June 2020</div>
+                        <div class="text-sm text-gray-500 ar-text hidden">أغسطس 2017 - يونيو 2020</div>
                     </div>
+                    <ul class="mt-3 space-y-2">
+                        <li class="text-gray-700 en-text">• Oversaw a team of 50 employees, providing leadership and technical guidance for electrical maintenance and operations</li>
+                        <li class="text-gray-700 ar-text hidden">• أشرفت على فريق من 50 موظفاً، وقدمت القيادة والتوجيه الفني للصيانة الكهربائية والعمليات</li>
+                        
+                        <li class="text-gray-700 en-text">• Developed and implemented strategic plans for electrical systems across multiple projects</li>
+                        <li class="text-gray-700 ar-text hidden">• طورت ونفذت خططاً استراتيجية للأنظمة الكهربائية عبر مشاريع متعددة</li>
+                        
+                        <li class="text-gray-700 en-text">• Collaborated with designers on pricing and tendering for future projects</li>
+                        <li class="text-gray-700 ar-text hidden">• تعاونت مع المصممين في التسعير والمناقصات للمشاريع المستقبلية</li>
+                        
+                        <li class="text-gray-700 en-text">• Conducted quality assurance tests to optimize reliability of electrical systems</li>
+                        <li class="text-gray-700 ar-text hidden">• أجريت اختبارات ضمان الجودة لتحسين موثوقية الأنظمة الكهربائية</li>
+                        
+                        <li class="text-gray-700 en-text">• Communicated with consultants to coordinate project deliverables and handover</li>
+                        <li class="text-gray-700 ar-text hidden">• تواصلت مع المستشارين لتنسيق تسليمات المشروع والتسليم</li>
+                    </ul>
+                </div>
+                
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item">
+                    <div class="mb-2">
+                        <h3 class="text-xl font-bold text-gray-800 en-text">Electrical Project Engineer</h3>
+                        <h3 class="text-xl font-bold text-gray-800 ar-text hidden">مهندس مشاريع كهربائية</h3>
+                        <div class="text-blue-600 en-text">BinSammar Trading and Construction Company, Makkah</div>
+                        <div class="text-blue-600 ar-text hidden">شركة بن سمار للتجارة والمقاولات، مكة</div>
+                        <div class="text-sm text-gray-500 en-text">December 2016 - November 2017</div>
+                        <div class="text-sm text-gray-500 ar-text hidden">ديسمبر 2016 - نوفمبر 2017</div>
+                    </div>
+                    <ul class="mt-3 space-y-2">
+                        <li class="text-gray-700 en-text">• Served as site manager for maintenance of King Faisal Hospital in Makkah</li>
+                        <li class="text-gray-700 ar-text hidden">• عملت كمدير موقع لصيانة مستشفى الملك فيصل في مكة</li>
+                        
+                        <li class="text-gray-700 en-text">• Managed maintenance for 3 MVA Caterpillar backup generators</li>
+                        <li class="text-gray-700 ar-text hidden">• أدرت صيانة مولدات كاتربيلر الاحتياطية بقدرة 3 ميغا فولت أمبير</li>
+                        
+                        <li class="text-gray-700 en-text">• Supervised maintenance of hospital electrical panels, UPS systems, isolation systems, and nurse call systems</li>
+                        <li class="text-gray-700 ar-text hidden">• أشرفت على صيانة لوحات المستشفى الكهربائية، وأنظمة UPS، وأنظمة العزل، وأنظمة استدعاء الممرضات</li>
+                        
+                        <li class="text-gray-700 en-text">• Led a team of 20 electricians and 40 workers</li>
+                        <li class="text-gray-700 ar-text hidden">• قدت فريقًا من 20 كهربائيًا و 40 عاملاً</li>
+                        
+                        <li class="text-gray-700 en-text">• Managed subcontractors and prepared monthly invoices</li>
+                        <li class="text-gray-700 ar-text hidden">• أدرت المقاولين من الباطن وأعددت الفواتير الشهرية</li>
+                    </ul>
+                </div>
+                
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item">
+                    <div class="mb-2">
+                        <h3 class="text-xl font-bold text-gray-800 en-text">Site Manager</h3>
+                        <h3 class="text-xl font-bold text-gray-800 ar-text hidden">مدير موقع</h3>
+                        <div class="text-blue-600 en-text">BinSammar Trading and Construction Company, Makkah</div>
+                        <div class="text-blue-600 ar-text hidden">شركة بن سمار للتجارة والمقاولات، مكة</div>
+                        <div class="text-sm text-gray-500 en-text">September 2013 - November 2016</div>
+                        <div class="text-sm text-gray-500 ar-text hidden">سبتمبر 2013 - نوفمبر 2016</div>
+                    </div>
+                    <ul class="mt-3 space-y-2">
+                        <li class="text-gray-700 en-text">• Managed Hajj preparation work in the Holy Sites in Makkah</li>
+                        <li class="text-gray-700 ar-text hidden">• أدرت أعمال تحضيرات الحج في المشاعر المقدسة بمكة المكرمة</li>
+                        
+                        <li class="text-gray-700 en-text">• Created shop drawings for 500 overnight camps in Arafat, Mina, and Muzdalifah</li>
+                        <li class="text-gray-700 ar-text hidden">• أنشأت رسومات تنفيذية لـ 500 مخيم مبيت في عرفات ومنى ومزدلفة</li>
+                        
+                        <li class="text-gray-700 en-text">• Responsible for electrical maintenance of more than 3,000 overnight camps</li>
+                        <li class="text-gray-700 ar-text hidden">• مسؤول عن الصيانة الكهربائية لأكثر من 3000 مخيم مبيت</li>
+                        
+                        <li class="text-gray-700 en-text">• Led approximately 150 electricians and 300 workers during Hajj season</li>
+                        <li class="text-gray-700 ar-text hidden">• قدت حوالي 150 كهربائيًا و 300 عامل خلال موسم الحج</li>
+                        
+                        <li class="text-gray-700 en-text">• Ensured continuity of electrical services and rapid resolution of electrical faults</li>
+                        <li class="text-gray-700 ar-text hidden">• ضمنت استمرارية الخدمات الكهربائية والحل السريع للأعطال الكهربائية</li>
+                    </ul>
+                </div>
+                
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item">
+                    <div class="mb-2">
+                        <h3 class="text-xl font-bold text-gray-800 en-text">Electrical Site Engineer</h3>
+                        <h3 class="text-xl font-bold text-gray-800 ar-text hidden">مهندس موقع كهربائي</h3>
+                        <div class="text-blue-600 en-text">Siemens, 6th of October, Egypt</div>
+                        <div class="text-blue-600 ar-text hidden">سيمنز، السادس من أكتوبر، مصر</div>
+                        <div class="text-sm text-gray-500 en-text">January 2011 - August 2013</div>
+                        <div class="text-sm text-gray-500 ar-text hidden">يناير 2011 - أغسطس 2013</div>
+                    </div>
+                    <ul class="mt-3 space-y-2">
+                        <li class="text-gray-700 en-text">• Supervised electrical wiring and installation for company premises and sites</li>
+                        <li class="text-gray-700 ar-text hidden">• أشرفت على الأسلاك الكهربائية والتركيب لمباني ومواقع الشركة</li>
+                        
+                        <li class="text-gray-700 en-text">• Led technician teams in installation and commissioning of electrical systems</li>
+                        <li class="text-gray-700 ar-text hidden">• قدت فرق الفنيين في تركيب وتشغيل الأنظمة الكهربائية</li>
+                        
+                        <li class="text-gray-700 en-text">• Conducted site inspections to identify and resolve electrical issues</li>
+                        <li class="text-gray-700 ar-text hidden">• أجريت عمليات تفتيش للمواقع لتحديد وحل المشكلات الكهربائية</li>
+                        
+                        <li class="text-gray-700 en-text">• Coordinated with clients and contractors to develop electrical plans</li>
+                        <li class="text-gray-700 ar-text hidden">• نسقت مع العملاء والمقاولين لتطوير الخطط الكهربائية</li>
+                        
+                        <li class="text-gray-700 en-text">• Oversaw testing and troubleshooting of electrical equipment</li>
+                        <li class="text-gray-700 ar-text hidden">• أشرفت على اختبار وإصلاح المعدات الكهربائية</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-white">
+    <section id="projects" class="section bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="section-heading text-3xl font-bold mb-10" data-i18n="projects_title">Major Projects</h2>
+            <h2 class="text-3xl font-bold text-center mb-10 en-text">Featured Projects</h2>
+            <h2 class="text-3xl font-bold text-center mb-10 ar-text hidden">المشاريع البارزة</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project 1 -->
-                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-xl relative">
-                    <div class="h-48 bg-blue-800 flex items-center justify-center">
-                        <i class="fas fa-road text-6xl text-white opacity-50"></i>
+                <div class="project-card bg-gray-50 rounded-lg overflow-hidden shadow-sm">
+                    <div class="h-40 bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-road text-5xl text-blue-500"></i>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3" data-i18n="project1_title">Fourth Ring Road & Al-Laith Road Bridge</h3>
-                        <p class="text-gray-600 mb-4" data-i18n="project1_desc">
-                            Electrical design and construction of road and bridge lighting systems
-                        </p>
-                        <ul class="text-gray-700 space-y-2 mb-4">
-                            <li><i class="fas fa-check text-green-500 mr-2"></i><span data-i18n="project1_point1">140 highmast lighting poles</span></li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i><span data-i18n="project1_point2">184 standard 12m poles for loops and ramps</span></li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i><span data-i18n="project1_point3">Complete project handover to Holy Capital authorities</span></li>
-                        </ul>
-                        <div class="pt-4 border-t border-gray-200">
-                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs mr-2 mb-2" data-i18n="project1_tag1">Road Lighting</span>
-                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs mr-2 mb-2" data-i18n="project1_tag2">Infrastructure</span>
-                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs mr-2 mb-2" data-i18n="project1_tag3">Public Works</span>
-                        </div>
+                        <h3 class="text-xl font-bold mb-3 en-text">Fourth Ring Road & Al-Laith Road Bridge</h3>
+                        <h3 class="text-xl font-bold mb-3 ar-text hidden">جسر الطريق الدائري الرابع وطريق الليث</h3>
+                        <p class="text-gray-700 mb-4 en-text">Electrical design and construction of road and bridge lighting with 140 high-mast lighting poles and 184 standard poles for loops, ramps, and service roads.</p>
+                        <p class="text-gray-700 mb-4 ar-text hidden">التصميم الكهربائي وإنشاء إنارة الطريق والجسر مع 140 عمود إنارة عالي الارتفاع و 184 عمود قياسي للحلقات والمنحدرات وطرق الخدمة.</p>
+                        <div class="text-sm text-gray-500 en-text">Successfully closed and permanently handed over to the Holy Capital secretariat.</div>
+                        <div class="text-sm text-gray-500 ar-text hidden">تم إغلاقه بنجاح وتسليمه بشكل دائم لأمانة العاصمة المقدسة.</div>
                     </div>
                 </div>
                 
                 <!-- Project 2 -->
-                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-xl relative">
-                    <div class="h-48 bg-blue-800 flex items-center justify-center">
-                        <i class="fas fa-archway text-6xl text-white opacity-50"></i>
+                <div class="project-card bg-gray-50 rounded-lg overflow-hidden shadow-sm">
+                    <div class="h-40 bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-mountain text-5xl text-blue-500"></i>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Fourth Ring Road & Jabal Thawr Bridge</h3>
-                        <p class="text-gray-600 mb-4">
-                            Electrical design and construction for road and bridge lighting
-                        </p>
-                        <ul class="text-gray-700 space-y-2 mb-4">
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>170 highmast lighting poles</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>200 standard 12m poles for loops and ramps</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Completed all electrical works despite legal project delays</li>
-                        </ul>
-                        <div class="pt-4 border-t border-gray-200">
-                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs mr-2 mb-2">Road Lighting</span>
-                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs mr-2 mb-2">Electrical Design</span>
-                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs mr-2 mb-2">Public Infrastructure</span>
-                        </div>
+                        <h3 class="text-xl font-bold mb-3 en-text">Fourth Ring Road & Jabal Thawr Road Bridge</h3>
+                        <h3 class="text-xl font-bold mb-3 ar-text hidden">جسر الطريق الدائري الرابع وطريق جبل ثور</h3>
+                        <p class="text-gray-700 mb-4 en-text">Electrical design and construction with 170 high-mast lighting poles and 200 standard poles for roads and bridges.</p>
+                        <p class="text-gray-700 mb-4 ar-text hidden">التصميم الكهربائي والإنشاء مع 170 عمود إنارة عالي الارتفاع و 200 عمود قياسي للطرق والجسور.</p>
+                        <div class="text-sm text-gray-500 en-text">All electrical and lighting work completed despite project legal disputes.</div>
+                        <div class="text-sm text-gray-500 ar-text hidden">تم إنجاز جميع الأعمال الكهربائية والإضاءة على الرغم من النزاعات القانونية للمشروع.</div>
                     </div>
                 </div>
                 
                 <!-- Project 3 -->
-                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-xl relative">
-                    <div class="h-48 bg-blue-800 flex items-center justify-center">
-                        <i class="fas fa-city text-6xl text-white opacity-50"></i>
+                <div class="project-card bg-gray-50 rounded-lg overflow-hidden shadow-sm">
+                    <div class="h-40 bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-stream text-5xl text-blue-500"></i>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Fourth Ring Road & Al-Sail Road (9 Bridges)</h3>
-                        <p class="text-gray-600 mb-4">
-                            Major infrastructure lighting project with multiple bridge intersections
-                        </p>
-                        <ul class="text-gray-700 space-y-2 mb-4">
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>200 highmast lighting poles</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>700 standard 12m poles</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>5 transformers and 25 lighting panels</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>70% completion before pandemic interruption</li>
-                        </ul>
-                        <div class="pt-4 border-t border-gray-200">
-                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs mr-2 mb-2">Large-Scale</span>
-                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs mr-2 mb-2">Multiple Bridges</span>
-                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs mr-2 mb-2">Transformers</span>
-                        </div>
+                        <h3 class="text-xl font-bold mb-3 en-text">9 Bridges at Fourth Ring Road & Al-Sail Road</h3>
+                        <h3 class="text-xl font-bold mb-3 ar-text hidden">9 جسور في الطريق الدائري الرابع وطريق السيل</h3>
+                        <p class="text-gray-700 mb-4 en-text">Electrical design and construction with 200 high-mast lighting poles, 700 standard poles, 5 transformers, and 25 lighting panels.</p>
+                        <p class="text-gray-700 mb-4 ar-text hidden">التصميم الكهربائي والإنشاء مع 200 عمود إنارة عالي الارتفاع، و 700 عمود قياسي، و 5 محولات، و 25 لوحة إضاءة.</p>
+                        <div class="text-sm text-gray-500 en-text">70% of electrical work completed before the pandemic interruption.</div>
+                        <div class="text-sm text-gray-500 ar-text hidden">تم إنجاز 70٪ من الأعمال الكهربائية قبل انقطاع الوباء.</div>
                     </div>
                 </div>
                 
                 <!-- Project 4 -->
-                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-xl relative">
-                    <div class="h-48 bg-blue-800 flex items-center justify-center">
-                        <i class="fas fa-campground text-6xl text-white opacity-50"></i>
+                <div class="project-card bg-gray-50 rounded-lg overflow-hidden shadow-sm">
+                    <div class="h-40 bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-campground text-5xl text-blue-500"></i>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Pilgrim Camps Establishment</h3>
-                        <p class="text-gray-600 mb-4">
-                            Design and construction of pilgrim accommodations in holy sites
-                        </p>
-                        <ul class="text-gray-700 space-y-2 mb-4">
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Electrical design for 500 pilgrim camps</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Installations in Arafat, Mina, and Muzdalifah</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Full project handover to Ministry of Hajj</li>
-                        </ul>
-                        <div class="pt-4 border-t border-gray-200">
-                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs mr-2 mb-2">Hajj Facilities</span>
-                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs mr-2 mb-2">Electrical Design</span>
-                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs mr-2 mb-2">Complete Handover</span>
-                        </div>
+                        <h3 class="text-xl font-bold mb-3 en-text">Pilgrims' Camps in Arafat, Mina, and Muzdalifah</h3>
+                        <h3 class="text-xl font-bold mb-3 ar-text hidden">مخيمات الحجاج في عرفات ومنى ومزدلفة</h3>
+                        <p class="text-gray-700 mb-4 en-text">Electrical design and construction of 500 pilgrim camps across the holy sites, including complete electrical installations.</p>
+                        <p class="text-gray-700 mb-4 ar-text hidden">التصميم الكهربائي وبناء 500 مخيم للحجاج عبر المواقع المقدسة، بما في ذلك التركيبات الكهربائية الكاملة.</p>
+                        <div class="text-sm text-gray-500 en-text">Project completed and handed over to the Ministry of Hajj.</div>
+                        <div class="text-sm text-gray-500 ar-text hidden">تم الانتهاء من المشروع وتسليمه لوزارة الحج.</div>
                     </div>
                 </div>
                 
                 <!-- Project 5 -->
-                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-xl relative">
-                    <div class="h-48 bg-blue-800 flex items-center justify-center">
-                        <i class="fas fa-tools text-6xl text-white opacity-50"></i>
+                <div class="project-card bg-gray-50 rounded-lg overflow-hidden shadow-sm">
+                    <div class="h-40 bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-tools text-5xl text-blue-500"></i>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Pilgrim Camps Maintenance</h3>
-                        <p class="text-gray-600 mb-4">
-                            Three-season maintenance project for pilgrim facilities
-                        </p>
-                        <ul class="text-gray-700 space-y-2 mb-4">
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Electrical maintenance for 3,000 camps</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Led team of 150 electricians and 300 assistants</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Critical maintenance during Hajj seasons</li>
-                        </ul>
-                        <div class="pt-4 border-t border-gray-200">
-                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs mr-2 mb-2">Maintenance</span>
-                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs mr-2 mb-2">Team Leadership</span>
-                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs mr-2 mb-2">Hajj Operations</span>
-                        </div>
+                        <h3 class="text-xl font-bold mb-3 en-text">Pilgrims' Camps Maintenance (3 Seasons)</h3>
+                        <h3 class="text-xl font-bold mb-3 ar-text hidden">صيانة مخيمات الحجاج (3 مواسم)</h3>
+                        <p class="text-gray-700 mb-4 en-text">Electrical maintenance for 3,000 camps during Hajj seasons, ensuring uninterrupted power supply to all facilities.</p>
+                        <p class="text-gray-700 mb-4 ar-text hidden">الصيانة الكهربائية لـ 3000 مخيم خلال مواسم الحج، مما يضمن إمدادات طاقة غير منقطعة لجميع المرافق.</p>
+                        <div class="text-sm text-gray-500 en-text">Led a team of 150 electricians and 300 assistants during peak periods.</div>
+                        <div class="text-sm text-gray-500 ar-text hidden">قاد فريقًا من 150 كهربائيًا و 300 مساعد خلال فترات الذروة.</div>
                     </div>
                 </div>
                 
                 <!-- Project 6 -->
-                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-xl relative">
-                    <div class="h-48 bg-blue-800 flex items-center justify-center">
-                        <i class="fas fa-industry text-6xl text-white opacity-50"></i>
+                <div class="project-card bg-gray-50 rounded-lg overflow-hidden shadow-sm">
+                    <div class="h-40 bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-industry text-5xl text-blue-500"></i>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Juhayna Factory Construction</h3>
-                        <p class="text-gray-600 mb-4">
-                            Industrial electrical installation project in Egypt
-                        </p>
-                        <ul class="text-gray-700 space-y-2 mb-4">
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Supervised implementation of all electrical works</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Industrial-grade electrical installations</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Successful project handover to owner</li>
-                        </ul>
-                        <div class="pt-4 border-t border-gray-200">
-                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs mr-2 mb-2">Industrial</span>
-                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs mr-2 mb-2">Factory Systems</span>
-                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs mr-2 mb-2">Siemens Project</span>
-                        </div>
+                        <h3 class="text-xl font-bold mb-3 en-text">Juhayna Factory Construction</h3>
+                        <h3 class="text-xl font-bold mb-3 ar-text hidden">بناء مصنع جهينة</h3>
+                        <p class="text-gray-700 mb-4 en-text">Supervised implementation of electrical works for the Juhayna Factory construction project in 6th of October City, Egypt.</p>
+                        <p class="text-gray-700 mb-4 ar-text hidden">أشرف على تنفيذ الأعمال الكهربائية لمشروع بناء مصنع جهينة في مدينة السادس من أكتوبر، مصر.</p>
+                        <div class="text-sm text-gray-500 en-text">Project successfully handed over to the owner.</div>
+                        <div class="text-sm text-gray-500 ar-text hidden">تم تسليم المشروع بنجاح للمالك.</div>
                     </div>
                 </div>
             </div>
@@ -678,135 +496,183 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-gray-50">
+    <section id="skills" class="section bg-gray-50">
         <div class="container mx-auto px-4">
-            <h2 class="section-heading text-3xl font-bold mb-10" data-i18n="skills_title">Skills & Expertise</h2>
+            <h2 class="text-3xl font-bold text-center mb-10 en-text">Skills & Expertise</h2>
+            <h2 class="text-3xl font-bold text-center mb-10 ar-text hidden">المهارات والخبرات</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <!-- Technical Skills -->
                 <div>
-                    <h3 class="text-xl font-semibold mb-6 text-blue-800" data-i18n="skills_technical">Technical Skills</h3>
+                    <h3 class="text-xl font-bold mb-6 text-gray-800 en-text">Technical Skills</h3>
+                    <h3 class="text-xl font-bold mb-6 text-gray-800 ar-text hidden">المهارات التقنية</h3>
                     
-                    <div class="space-y-5">
+                    <div class="space-y-4">
                         <div>
                             <div class="flex justify-between mb-1">
-                                <span class="text-gray-700 font-medium">Electrical System Design</span>
-                                <span class="text-gray-600">95%</span>
+                                <span class="text-gray-700 en-text">Electrical Systems Design</span>
+                                <span class="text-gray-700 ar-text hidden">تصميم الأنظمة الكهربائية</span>
+                                <span>95%</span>
                             </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 95%"></div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 95%"></div>
                             </div>
                         </div>
                         
                         <div>
                             <div class="flex justify-between mb-1">
-                                <span class="text-gray-700 font-medium">Project Management</span>
-                                <span class="text-gray-600">90%</span>
+                                <span class="text-gray-700 en-text">Power Distribution Systems</span>
+                                <span class="text-gray-700 ar-text hidden">أنظمة توزيع الطاقة</span>
+                                <span>90%</span>
                             </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-700 font-medium">Electrical Maintenance</span>
-                                <span class="text-gray-600">95%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 95%"></div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 90%"></div>
                             </div>
                         </div>
                         
                         <div>
                             <div class="flex justify-between mb-1">
-                                <span class="text-gray-700 font-medium">Infrastructure Development</span>
-                                <span class="text-gray-600">85%</span>
+                                <span class="text-gray-700 en-text">Lighting Design & Installation</span>
+                                <span class="text-gray-700 ar-text hidden">تصميم وتركيب الإضاءة</span>
+                                <span>95%</span>
                             </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-700 font-medium">Quality Assurance</span>
-                                <span class="text-gray-600">90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 95%"></div>
                             </div>
                         </div>
                         
                         <div>
                             <div class="flex justify-between mb-1">
-                                <span class="text-gray-700 font-medium">Renewable Energy Systems</span>
-                                <span class="text-gray-600">80%</span>
+                                <span class="text-gray-700 en-text">Generator Systems</span>
+                                <span class="text-gray-700 ar-text hidden">أنظمة المولدات</span>
+                                <span>85%</span>
                             </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-700 en-text">UPS & Backup Systems</span>
+                                <span class="text-gray-700 ar-text hidden">أنظمة UPS والنسخ الاحتياطي</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-700 en-text">Electrical Troubleshooting</span>
+                                <span class="text-gray-700 ar-text hidden">استكشاف الأخطاء الكهربائية وإصلاحها</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 90%"></div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Professional Skills & Software -->
-                <div>
-                    <h3 class="text-xl font-semibold mb-6 text-blue-800" data-i18n="skills_professional">Professional Skills</h3>
-                    <div class="grid grid-cols-2 gap-4 mb-8">
-                        <div class="bg-white p-4 rounded-lg shadow-sm flex flex-col items-center">
-                            <i class="fas fa-users text-blue-600 text-3xl mb-2"></i>
-                            <span class="text-gray-800 font-medium">Team Management</span>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm flex flex-col items-center">
-                            <i class="fas fa-search-plus text-blue-600 text-3xl mb-2"></i>
-                            <span class="text-gray-800 font-medium">Troubleshooting</span>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm flex flex-col items-center">
-                            <i class="fas fa-chart-line text-blue-600 text-3xl mb-2"></i>
-                            <span class="text-gray-800 font-medium">Continuous Improvement</span>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm flex flex-col items-center">
-                            <i class="fas fa-tasks text-blue-600 text-3xl mb-2"></i>
-                            <span class="text-gray-800 font-medium">Project Planning</span>
+                <!-- Management Skills & Software Skills -->
+                <div class="space-y-10">
+                    <!-- Management Skills -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-6 text-gray-800 en-text">Management Skills</h3>
+                        <h3 class="text-xl font-bold mb-6 text-gray-800 ar-text hidden">مهارات الإدارة</h3>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-700 en-text">Project Management</span>
+                                    <span class="text-gray-700 ar-text hidden">إدارة المشاريع</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-700 en-text">Team Leadership</span>
+                                    <span class="text-gray-700 ar-text hidden">قيادة الفريق</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-700 en-text">Quality Assurance</span>
+                                    <span class="text-gray-700 ar-text hidden">ضمان الجودة</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-700 en-text">Continuous Improvement</span>
+                                    <span class="text-gray-700 ar-text hidden">التحسين المستمر</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 80%"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
-                    <h3 class="text-xl font-semibold mb-6 text-blue-800" data-i18n="skills_software">Software & Tools</h3>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-white p-4 rounded-lg shadow-sm flex items-center">
-                            <i class="fas fa-drafting-compass text-blue-600 text-xl mr-3"></i>
+                    <!-- Software Skills -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-6 text-gray-800 en-text">Software Skills</h3>
+                        <h3 class="text-xl font-bold mb-6 text-gray-800 ar-text hidden">مهارات البرمجيات</h3>
+                        
+                        <div class="space-y-4">
                             <div>
-                                <span class="text-gray-800 font-medium">AutoCAD</span>
-                                <div class="skill-bar mt-2" style="height: 6px;">
-                                    <div class="skill-progress" style="width: 90%"></div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-700">AutoCAD</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 90%"></div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm flex items-center">
-                            <i class="fas fa-lightbulb text-blue-600 text-xl mr-3"></i>
+                            
                             <div>
-                                <span class="text-gray-800 font-medium">DIALux</span>
-                                <div class="skill-bar mt-2" style="height: 6px;">
-                                    <div class="skill-progress" style="width: 85%"></div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-700">DIALux</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 85%"></div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm flex items-center">
-                            <i class="fas fa-bolt text-blue-600 text-xl mr-3"></i>
+                            
                             <div>
-                                <span class="text-gray-800 font-medium">E-TAP</span>
-                                <div class="skill-bar mt-2" style="height: 6px;">
-                                    <div class="skill-progress" style="width: 80%"></div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-700">E-TAP</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 80%"></div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm flex items-center">
-                            <i class="fas fa-file-word text-blue-600 text-xl mr-3"></i>
+                            
                             <div>
-                                <span class="text-gray-800 font-medium">Microsoft Office</span>
-                                <div class="skill-bar mt-2" style="height: 6px;">
-                                    <div class="skill-progress" style="width: 90%"></div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-700">Microsoft Office</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 95%"></div>
                                 </div>
                             </div>
                         </div>
@@ -814,22 +680,34 @@
                 </div>
             </div>
             
-            <div class="mt-16">
-                <h3 class="text-xl font-semibold mb-6 text-blue-800" data-i18n="skills_languages">Languages</h3>
-                <div class="flex flex-wrap gap-6">
-                    <div class="bg-white p-5 rounded-lg shadow-sm flex flex-col items-center w-36">
-                        <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-3">
-                            <i class="fas fa-language text-blue-600 text-2xl"></i>
+            <!-- Languages -->
+            <div class="mt-10">
+                <h3 class="text-xl font-bold mb-6 text-gray-800 en-text">Languages</h3>
+                <h3 class="text-xl font-bold mb-6 text-gray-800 ar-text hidden">اللغات</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700 en-text">Arabic</span>
+                            <span class="text-gray-700 ar-text hidden">العربية</span>
+                            <span class="en-text">Native</span>
+                            <span class="ar-text hidden">اللغة الأم</span>
                         </div>
-                        <span class="text-gray-800 font-medium" data-i18n="language_arabic">Arabic</span>
-                        <span class="text-gray-600 text-sm mt-1" data-i18n="language_arabic_level">Native</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%"></div>
+                        </div>
                     </div>
-                    <div class="bg-white p-5 rounded-lg shadow-sm flex flex-col items-center w-36">
-                        <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-3">
-                            <i class="fas fa-language text-blue-600 text-2xl"></i>
+                    
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700 en-text">English</span>
+                            <span class="text-gray-700 ar-text hidden">الإنجليزية</span>
+                            <span class="en-text">Professional</span>
+                            <span class="ar-text hidden">مستوى احترافي</span>
                         </div>
-                        <span class="text-gray-800 font-medium" data-i18n="language_english">English</span>
-                        <span class="text-gray-600 text-sm mt-1" data-i18n="language_english_level">Professional</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -837,60 +715,72 @@
     </section>
 
     <!-- Education Section -->
-    <section id="education" class="py-20 bg-white">
+    <section id="education" class="section bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="section-heading text-3xl font-bold mb-10" data-i18n="education_title">Education & Certifications</h2>
+            <h2 class="text-3xl font-bold text-center mb-10 en-text">Education & Certifications</h2>
+            <h2 class="text-3xl font-bold text-center mb-10 ar-text hidden">التعليم والشهادات</h2>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <!-- Education -->
                 <div>
-                    <h3 class="text-xl font-semibold mb-6 text-blue-800" data-i18n="education_subtitle">Education</h3>
-                    <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-600">
-                        <h4 class="text-lg font-semibold text-gray-800">Bachelor of Engineering - Electrical Power & Machines</h4>
-                        <p class="text-gray-600 mb-1">Tanta University, Egypt</p>
-                        <p class="text-gray-500">09/2004 – 06/2009</p>
-                        <p class="mt-3 text-gray-700">Graduated with Good standing</p>
+                    <h3 class="text-xl font-bold mb-6 text-gray-800 en-text">Academic Education</h3>
+                    <h3 class="text-xl font-bold mb-6 text-gray-800 ar-text hidden">التعليم الأكاديمي</h3>
+                    
+                    <div class="bg-gray-50 rounded-lg p-6 shadow-sm">
+                        <h4 class="text-lg font-bold text-gray-800 en-text">Bachelor of Engineering, Electrical Power & Machines</h4>
+                        <h4 class="text-lg font-bold text-gray-800 ar-text hidden">بكالوريوس هندسة، قوى كهربائية وآلات</h4>
+                        <div class="text-blue-600 en-text">Tanta University, Egypt</div>
+                        <div class="text-blue-600 ar-text hidden">جامعة طنطا، مصر</div>
+                        <div class="text-sm text-gray-500 en-text">September 2004 - June 2009</div>
+                        <div class="text-sm text-gray-500 ar-text hidden">سبتمبر 2004 - يونيو 2009</div>
+                        <div class="mt-2 text-gray-700 en-text">Graduated with Good standing</div>
+                        <div class="mt-2 text-gray-700 ar-text hidden">تخرج بتقدير جيد</div>
                     </div>
                 </div>
                 
                 <!-- Certifications -->
                 <div>
-                    <h3 class="text-xl font-semibold mb-6 text-blue-800" data-i18n="certifications_subtitle">Certifications</h3>
-                    <div class="space-y-5">
-                        <div class="bg-white p-5 rounded-lg shadow-sm border-l-4 border-yellow-500">
-                            <h4 class="text-lg font-semibold text-gray-800">Career Essentials in Generative AI</h4>
-                            <p class="text-gray-600 mb-2">Microsoft and LinkedIn</p>
-                            <p class="text-gray-500 mb-3">September 2023</p>
-                            <p class="text-sm text-gray-700">
-                                Understanding of generative AI models, ethical considerations, and impact of generative AI tools.
-                            </p>
+                    <h3 class="text-xl font-bold mb-6 text-gray-800 en-text">Professional Certifications</h3>
+                    <h3 class="text-xl font-bold mb-6 text-gray-800 ar-text hidden">الشهادات المهنية</h3>
+                    
+                    <div class="space-y-6">
+                        <!-- Certificate 1 -->
+                        <div class="bg-gray-50 rounded-lg p-6 shadow-sm">
+                            <h4 class="text-lg font-bold text-gray-800">Career Essentials in Generative AI</h4>
+                            <div class="text-blue-600 en-text">Microsoft and LinkedIn</div>
+                            <div class="text-blue-600 ar-text hidden">مايكروسوفت ولينكد إن</div>
+                            <div class="text-sm text-gray-500">September 2023</div>
+                            <div class="mt-2 text-gray-700 en-text">Understanding of generative AI models, ethical considerations, and impact of generative AI tools.</div>
+                            <div class="mt-2 text-gray-700 ar-text hidden">فهم نماذج الذكاء الاصطناعي التوليدي، والاعتبارات الأخلاقية، وتأثير أدوات الذكاء الاصطناعي التوليدي.</div>
                         </div>
                         
-                        <div class="bg-white p-5 rounded-lg shadow-sm border-l-4 border-green-500">
-                            <h4 class="text-lg font-semibold text-gray-800">Exploring Renewable Energy Schemes</h4>
-                            <p class="text-gray-600 mb-2">University of Pennsylvania (Coursera)</p>
-                            <p class="text-gray-500 mb-3">September 2023</p>
-                            <p class="text-sm text-gray-700">
-                                Essential characteristics of photovoltaic, wind, and low head hydroelectric energy systems; implementation of small-scale renewable energy schemes.
-                            </p>
+                        <!-- Certificate 2 -->
+                        <div class="bg-gray-50 rounded-lg p-6 shadow-sm">
+                            <h4 class="text-lg font-bold text-gray-800">Exploring Renewable Energy Schemes</h4>
+                            <div class="text-blue-600 en-text">University of Pennsylvania (Coursera)</div>
+                            <div class="text-blue-600 ar-text hidden">جامعة بنسلفانيا (كورسيرا)</div>
+                            <div class="text-sm text-gray-500">September 2023</div>
+                            <div class="mt-2 text-gray-700 en-text">Assessment and implementation of small-scale renewable energy schemes including photovoltaic, wind, and low head hydroelectric systems.</div>
+                            <div class="mt-2 text-gray-700 ar-text hidden">تقييم وتنفيذ مخططات الطاقة المتجددة صغيرة الحجم بما في ذلك الأنظمة الكهروضوئية وطاقة الرياح والأنظمة الكهرومائية منخفضة الرأس.</div>
                         </div>
                         
-                        <div class="bg-white p-5 rounded-lg shadow-sm border-l-4 border-blue-500">
-                            <h4 class="text-lg font-semibold text-gray-800">Foundations of Project Management</h4>
-                            <p class="text-gray-600 mb-2">Google (Coursera)</p>
-                            <p class="text-gray-500 mb-3">September 2023</p>
-                            <p class="text-sm text-gray-700">
-                                Project management skills, methodologies, and organizational impacts across various industries.
-                            </p>
+                        <!-- Certificate 3 -->
+                        <div class="bg-gray-50 rounded-lg p-6 shadow-sm">
+                            <h4 class="text-lg font-bold text-gray-800">Foundations of Project Management</h4>
+                            <div class="text-blue-600">Google (Coursera)</div>
+                            <div class="text-sm text-gray-500">September 2023</div>
+                            <div class="mt-2 text-gray-700 en-text">Project management skills, roles, responsibilities, lifecycles, and methodologies across various industries.</div>
+                            <div class="mt-2 text-gray-700 ar-text hidden">مهارات إدارة المشاريع، والأدوار، والمسؤوليات، ودورات الحياة، والمنهجيات عبر مختلف الصناعات.</div>
                         </div>
                         
-                        <div class="bg-white p-5 rounded-lg shadow-sm border-l-4 border-yellow-500">
-                            <h4 class="text-lg font-semibold text-gray-800">Solar Energy and Electrical System Design</h4>
-                            <p class="text-gray-600 mb-2">University at Buffalo (Coursera)</p>
-                            <p class="text-gray-500 mb-3">September 2023</p>
-                            <p class="text-sm text-gray-700">
-                                Analysis of PV systems, evaluation of system requirements, and key design considerations.
-                            </p>
+                        <!-- Certificate 4 -->
+                        <div class="bg-gray-50 rounded-lg p-6 shadow-sm">
+                            <h4 class="text-lg font-bold text-gray-800">Solar Energy and Electrical System Design</h4>
+                            <div class="text-blue-600 en-text">University at Buffalo (Coursera)</div>
+                            <div class="text-blue-600 ar-text hidden">جامعة بافالو (كورسيرا)</div>
+                            <div class="text-sm text-gray-500">September 2023</div>
+                            <div class="mt-2 text-gray-700 en-text">Analysis of PV system advantages/disadvantages, evaluation of requirements, and identification of key design considerations.</div>
+                            <div class="mt-2 text-gray-700 ar-text hidden">تحليل مزايا/عيوب نظام الطاقة الشمسية، وتقييم المتطلبات، وتحديد اعتبارات التصميم الرئيسية.</div>
                         </div>
                     </div>
                 </div>
@@ -899,80 +789,96 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-blue-800 text-white">
+    <section id="contact" class="section bg-gray-50">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-10 text-center" data-i18n="contact_title">Get In Touch</h2>
+            <h2 class="text-3xl font-bold text-center mb-10 en-text">Contact Me</h2>
+            <h2 class="text-3xl font-bold text-center mb-10 ar-text hidden">اتصل بي</h2>
             
-            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Contact Info -->
                 <div>
-                    <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-center">
-                            <div class="w-12 h-12 rounded-full bg-blue-700 flex items-center justify-center mr-4">
+                    <h3 class="text-xl font-bold mb-6 text-gray-800 en-text">Get In Touch</h3>
+                    <h3 class="text-xl font-bold mb-6 text-gray-800 ar-text hidden">تواصل معي</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="text-blue-500 mr-4 mt-1">
                                 <i class="fas fa-envelope text-xl"></i>
                             </div>
                             <div>
-                                <p class="text-gray-300 text-sm">Email</p>
-                                <a href="mailto:mohammednassim4@live.com" class="hover:text-yellow-300 transition duration-300">mohammednassim4@live.com</a>
+                                <h4 class="font-bold text-gray-800 en-text">Email</h4>
+                                <h4 class="font-bold text-gray-800 ar-text hidden">البريد الإلكتروني</h4>
+                                <p class="text-gray-700">mohammednassim4@live.com</p>
                             </div>
                         </div>
                         
-                        <div class="flex items-center">
-                            <div class="w-12 h-12 rounded-full bg-blue-700 flex items-center justify-center mr-4">
-                                <i class="fas fa-phone text-xl"></i>
+                        <div class="flex items-start">
+                            <div class="text-blue-500 mr-4 mt-1">
+                                <i class="fas fa-phone-alt text-xl"></i>
                             </div>
                             <div>
-                                <p class="text-gray-300 text-sm">Phone</p>
-                                <a href="tel:01067393757" class="hover:text-yellow-300 transition duration-300">01067393757</a>
+                                <h4 class="font-bold text-gray-800 en-text">Phone</h4>
+                                <h4 class="font-bold text-gray-800 ar-text hidden">الهاتف</h4>
+                                <p class="text-gray-700">01067393757</p>
                             </div>
                         </div>
                         
-                        <div class="flex items-center">
-                            <div class="w-12 h-12 rounded-full bg-blue-700 flex items-center justify-center mr-4">
+                        <div class="flex items-start">
+                            <div class="text-blue-500 mr-4 mt-1">
                                 <i class="fas fa-map-marker-alt text-xl"></i>
                             </div>
                             <div>
-                                <p class="text-gray-300 text-sm">Location</p>
-                                <p>Almokatam, Cairo, Egypt</p>
+                                <h4 class="font-bold text-gray-800 en-text">Location</h4>
+                                <h4 class="font-bold text-gray-800 ar-text hidden">الموقع</h4>
+                                <p class="text-gray-700 en-text">Almokatam, Cairo, Egypt</p>
+                                <p class="text-gray-700 ar-text hidden">المقطم، القاهرة، مصر</p>
                             </div>
                         </div>
                         
-                        <div class="flex items-center">
-                            <div class="w-12 h-12 rounded-full bg-blue-700 flex items-center justify-center mr-4">
-                                <i class="fab fa-linkedin-in text-xl"></i>
+                        <div class="flex items-start">
+                            <div class="text-blue-500 mr-4 mt-1">
+                                <i class="fab fa-linkedin text-xl"></i>
                             </div>
                             <div>
-                                <p class="text-gray-300 text-sm">LinkedIn</p>
-                                <a href="#" class="hover:text-yellow-300 transition duration-300">@mohammed-nassim</a>
+                                <h4 class="font-bold text-gray-800">LinkedIn</h4>
+                                <p class="text-gray-700">@mohammed_nassim</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
+                <!-- Contact Form -->
                 <div>
-                    <h3 class="text-xl font-semibold mb-6" data-i18n="contact_subtitle">Send a Message</h3>
-                    <form>
-                        <div class="mb-5">
-                            <label for="name" class="block text-gray-300 mb-2 text-sm md:text-base" data-i18n="contact_name">Your Name</label>
-                            <input type="text" id="name" class="w-full px-4 py-3 rounded-xl bg-blue-700 border border-blue-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-white shadow-inner transition duration-300" data-i18n-placeholder="contact_name">
+                    <h3 class="text-xl font-bold mb-6 text-gray-800 en-text">Send Me a Message</h3>
+                    <h3 class="text-xl font-bold mb-6 text-gray-800 ar-text hidden">أرسل لي رسالة</h3>
+                    
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2 en-text">Name</label>
+                            <label for="name" class="block text-gray-700 mb-2 ar-text hidden">الاسم</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                         </div>
                         
-                        <div class="mb-5">
-                            <label for="email" class="block text-gray-300 mb-2 text-sm md:text-base" data-i18n="contact_email">Your Email</label>
-                            <input type="email" id="email" class="w-full px-4 py-3 rounded-xl bg-blue-700 border border-blue-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-white shadow-inner transition duration-300" data-i18n-placeholder="contact_email">
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-2 en-text">Email</label>
+                            <label for="email" class="block text-gray-700 mb-2 ar-text hidden">البريد الإلكتروني</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                         </div>
                         
-                        <div class="mb-5">
-                            <label for="subject" class="block text-gray-300 mb-2 text-sm md:text-base" data-i18n="contact_subject">Subject</label>
-                            <input type="text" id="subject" class="w-full px-4 py-3 rounded-xl bg-blue-700 border border-blue-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-white shadow-inner transition duration-300" data-i18n-placeholder="contact_subject">
+                        <div>
+                            <label for="subject" class="block text-gray-700 mb-2 en-text">Subject</label>
+                            <label for="subject" class="block text-gray-700 mb-2 ar-text hidden">الموضوع</label>
+                            <input type="text" id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                         </div>
                         
-                        <div class="mb-6">
-                            <label for="message" class="block text-gray-300 mb-2 text-sm md:text-base" data-i18n="contact_message">Message</label>
-                            <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-xl bg-blue-700 border border-blue-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-white shadow-inner transition duration-300" data-i18n-placeholder="contact_message"></textarea>
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-2 en-text">Message</label>
+                            <label for="message" class="block text-gray-700 mb-2 ar-text hidden">الرسالة</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
                         </div>
                         
-                        <button type="submit" class="w-full md:w-auto px-6 py-4 bg-yellow-500 text-gray-900 font-bold rounded-xl hover:bg-yellow-400 transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 active:translate-y-0" data-i18n="contact_send">Send Message</button>
+                        <button type="submit" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition en-text">Send Message</button>
+                        <button type="submit" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition ar-text hidden">إرسال الرسالة</button>
                     </form>
                 </div>
             </div>
@@ -980,127 +886,149 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <div class="flex justify-center space-x-6 mb-6">
-                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition duration-300">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-500 transition duration-300">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-red-600 transition duration-300">
-                    <i class="fab fa-youtube"></i>
-                </a>
-                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-800 transition duration-300">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-bold">Mohammed Nassim Ebrahim</h3>
+                    <p class="text-gray-400 en-text">Electrical Engineer & Project Manager</p>
+                    <p class="text-gray-400 ar-text hidden">مهندس كهربائي ومدير مشاريع</p>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-blue-400 transition">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="hover:text-blue-400 transition">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="hover:text-blue-400 transition">
+                        <i class="fab fa-facebook text-xl"></i>
+                    </a>
+                    <a href="#" class="hover:text-blue-400 transition">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                </div>
             </div>
-            <p>&copy; 2023 Mohammed Nassim Ebrahim. All rights reserved.</p>
-            <p class="text-gray-500 mt-2">Electrical Engineer & Project Manager</p>
+            
+            <div class="mt-6 text-center text-gray-400">
+                <p class="en-text">© 2023 Mohammed Nassim Ebrahim. All rights reserved.</p>
+                <p class="ar-text hidden">© 2023 محمد نسيم إبراهيم. جميع الحقوق محفوظة.</p>
+            </div>
         </div>
     </footer>
 
+    <!-- JavaScript -->
     <script>
-        // Navbar scroll effect with smooth transition
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('nav-scrolled');
-                document.querySelectorAll('#navbar .hidden a').forEach(item => {
-                    item.classList.remove('text-white');
-                    item.classList.add('text-gray-800');
-                });
-            } else {
-                navbar.classList.remove('nav-scrolled');
-                document.querySelectorAll('#navbar .hidden a').forEach(item => {
-                    item.classList.remove('text-gray-800');
-                    item.classList.add('text-white');
-                });
-            }
-        });
-
-        // Mobile menu toggle with improved animation
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        const body = document.body;
+        const closeMenu = document.getElementById('close-menu');
         
-        mobileMenuButton.addEventListener('click', function() {
-            mobileMenu.classList.toggle('active');
-            const icon = mobileMenuButton.querySelector('i');
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+        
+        closeMenu.addEventListener('click', () => {
+            menuBtn.classList.remove('open');
+            mobileMenu.classList.remove('open');
+        });
+        
+        // Close mobile menu when clicking a nav link
+        const mobileNavLinks = mobileMenu.querySelectorAll('a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuBtn.classList.remove('open');
+                mobileMenu.classList.remove('open');
+            });
+        });
+        
+        // Language Toggle
+        const languageToggle = document.getElementById('language-toggle');
+        const enTexts = document.querySelectorAll('.en-text');
+        const arTexts = document.querySelectorAll('.ar-text');
+        
+        languageToggle.addEventListener('click', () => {
+            document.body.classList.toggle('rtl');
             
-            if (mobileMenu.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-                body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
-                
-                // Animate menu items with staggered delay
-                document.querySelectorAll('#mobile-menu a').forEach((item, index) => {
-                    item.style.opacity = '0';
-                    item.style.transform = 'translateY(10px)';
-                    item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-                    item.style.transitionDelay = `${0.1 + index * 0.05}s`;
-                    
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'translateY(0)';
-                    }, 10);
-                });
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-                body.style.overflow = ''; // Restore scrolling
-                
-                // Reset menu item animations
-                document.querySelectorAll('#mobile-menu a').forEach(item => {
-                    item.style.opacity = '';
-                    item.style.transform = '';
-                    item.style.transition = '';
-                    item.style.transitionDelay = '';
-                });
+            enTexts.forEach(el => {
+                el.classList.toggle('hidden');
+            });
+            
+            arTexts.forEach(el => {
+                el.classList.toggle('hidden');
+            });
+            
+            // Update mobile menu position
+            if (mobileMenu.classList.contains('open')) {
+                mobileMenu.classList.remove('open');
+                menuBtn.classList.remove('open');
             }
         });
-
-        // Close menu when clicking menu items on mobile
-        document.querySelectorAll('#mobile-menu a').forEach(item => {
-            item.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                const icon = mobileMenuButton.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-                body.style.overflow = ''; // Restore scrolling
+        
+        // Animation for progress bars
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        }
+        
+        // Contact form handling
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Here you would normally handle the form submission with AJAX
+            // For demo purposes, we'll just show an alert
+            alert(document.body.classList.contains('rtl') ? 'تم إرسال رسالتك بنجاح!' : 'Your message has been sent successfully!');
+            contactForm.reset();
+        });
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
                 
-                // Smooth scroll to section
-                const href = item.getAttribute('href');
-                const targetSection = document.querySelector(href);
-                if (targetSection) {
-                    const offsetTop = targetSection.offsetTop;
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
                     window.scrollTo({
-                        top: offsetTop,
+                        top: offsetPosition,
                         behavior: 'smooth'
                     });
                 }
             });
         });
         
-        // Add scroll reveal effect for sections
-        const revealElements = document.querySelectorAll('section');
+        // Initialize animations when page loads
+        window.addEventListener('load', () => {
+            animateProgressBars();
+        });
         
-        function checkReveal() {
-            const windowHeight = window.innerHeight;
-            const revealPoint = 150;
-            
-            revealElements.forEach(element => {
-                const revealTop = element.getBoundingClientRect().top;
-                
-                if (revealTop < windowHeight - revealPoint) {
-                    element.classList.add('revealed');
+        // Re-trigger animations when scrolling to skills section
+        const skillsSection = document.getElementById('skills');
+        let animated = false;
+        
+        window.addEventListener('scroll', () => {
+            if (!animated) {
+                const rect = skillsSection.getBoundingClientRect();
+                const isVisible = (rect.top <= window.innerHeight && rect.bottom >= 0);
+                if (isVisible) {
+                    animateProgressBars();
+                    animated = true;
                 }
-            });
-        }
-        
-        window.addEventListener('scroll', checkReveal);
-        window.addEventListener('load', checkReveal);
+            }
+        });
     </script>
 </body>
 </html>
